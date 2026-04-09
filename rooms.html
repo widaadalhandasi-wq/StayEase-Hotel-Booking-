@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEase | Our Rooms</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/rooms.css">
+    <link rel="stylesheet" href="css/darkmood.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm transition-theme">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-hotel text-primary me-2"></i>
+                <span class="text-dark">Stay</span><span class="text-primary">Ease</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="rooms.html">Rooms</a></li>
+                </ul>
+                <button id="themeToggle" class="theme-btn border-0 bg-transparent shadow-none">
+                    <i class="fa-solid fa-sun fs-4 sun-icon"></i>
+                    <i class="fa-solid fa-moon fs-4 moon-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="room-section">
+        <div class="container pt-2 mt-2 mb-4">
+            <h2 class="section-title text-center mb-5 mt-4">Find Your <span>Stay</span></h2>
+
+            <div class="row g-3 mb-5 p-4 bg-white shadow-sm rounded-4 filter-bar">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Search Name</label>
+                    <input type="text" id="searchInput" class="form-control rounded-pill" placeholder="e.g. Suite">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Type</label>
+                    <select id="typeSelect" class="form-select rounded-pill">
+                        <option value="all">All Types</option>
+                        <option value="Single">Single</option>
+                        <option value="Double">Double</option>
+                        <option value="Suite">Suite</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label fw-bold d-flex justify-content-between">
+                        Max Price: <span id="priceLabel" class="text-primary">$250</span>
+                    </label>
+                    <input type="range" id="priceRange" class="form-range" min="40" max="250" step="10" value="250">
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" id="availCheck">
+                        <label class="form-check-label fw-bold ms-2" for="availCheck">Available Only</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="roomsGrid" class="row gy-4">
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/rooms.js"></script>
+</body>
+
+</html>

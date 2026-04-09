@@ -1,0 +1,404 @@
+/* --- وضع الإضاءة (Light Mode) هو الافتراضي --- */
+:root {
+    /* ألوان الخلفيات */
+    --bg-body: #ffffff;
+    --bg-section-alt: rgba(167, 161, 161, 0.1);
+    --bg-card: #ffffff;
+    --bg-nav-scrolled: rgba(2, 8, 98, 0.95);
+
+
+    /* ألوان النصوص */
+    --text-main: #2b3035;
+    --text-muted: #6c757d;
+    --text-navbar: #ffffff;
+
+    /* ألوان الهوية والتفاعل */
+    --primary: #020862;
+    /* أزرق StayEase الداكن */
+    --accent: #38bdf8;
+    /* أزرق سماوي للتأثيرات */
+    --gold: #ffc107;
+    /* أصفر للتفاعل */
+    --nav-shadow: rgba(0, 0, 0, 0.1);
+    --bs-primary: #01074a !important;
+    --bs-primary-rgb: 1, 7, 74 !important;
+}
+
+/* التنسيق الأساسي للنافبار */
+.navbar {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--nav-bg) !important;
+    backdrop-filter: blur(0px);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* الحالة عند السكرول (تُفعل بواسطة JS) */
+.navbar.scrolled {
+    background-color: var(--primary) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+}
+
+/* ألوان النصوص واللوجو ثابتة باللون الأبيض للوضوح */
+.nav-link,
+.navbar-brand,
+.navbar-brand i {
+    color: var(--text-navbar) !important;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: pointer !important;
+}
+
+/* تأثير الخط تحت الكلمات فقط */
+.nav-link span {
+    position: relative;
+    display: inline-block;
+
+}
+
+.nav-link span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+/* تمدد الخط عند التمرير أو الحالة النشطة */
+.nav-link:hover span::after,
+.nav-link.active span::after {
+    width: 100%;
+    /* يتمدد على قدر الكلمة بالضبط */
+}
+
+/* أيقونة اللوجو */
+.navbar-brand i {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900;
+}
+
+/* --- 3. زر الثيم المطور (أيقونات الشمس والقمر) --- */
+.theme-btn {
+    background: rgba(255, 255, 255, 0.1) !important;
+    /* خلفية خفيفة جداً للزر */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* التحكم في الأيقونات بناءً على سمة Bootstrap */
+[data-bs-theme="light"] .sun-icon {
+    display: none;
+}
+
+[data-bs-theme="light"] .moon-icon {
+    display: block;
+    color: var(--bg-body);
+    
+}
+
+/* تأثير الخط تحت الكلمات فقط */
+.nav-link span {
+    position: relative;
+}
+
+.nav-link span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transition: 0.3s;
+}
+
+.nav-link:hover span::after {
+    width: 100%;
+}
+/* --- 4. أيقونة الموبايل (Hamburger Menu) --- */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1) brightness(2);
+    /* تأكد من ظهورها باللون الأبيض */
+}
+
+/* تحسين السكرول: تقليل حجم النافبار عند النزول */
+.navbar.scrolled {
+    padding: 8px 0 !important;
+}
+
+/* --- إعدادات عامة ومنع الزحف الأفقي --- */
+/* home */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- العناوين (Typography) --- */
+h2.section-title {
+    font-size: clamp(32px, 5vw, 45px);
+    /* حجم متجاوب تلقائياً */
+    font-weight: 700 !important;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+/* --- الـ Hero Section --- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    background: linear-gradient(rgba(2, 8, 98, 0.411), rgba(0, 0, 0, 0.51));
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2 !important;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: clamp(35px, 8vw, 75px);
+    font-weight: 800;
+    color: var(--bg-body);
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+/* --- Amenities Section (قسم الخدمات) --- */
+.amenities-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--bg-section-alt);
+}
+
+
+.amenity-card {
+    background-color: var(--bg-card) !important;
+    border-radius: 20px !important;
+    border: none;
+    padding: 35px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.amenity-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* تحسين الأيقونة وتأثير الأصفر النيون */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(2, 8, 98, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.icon-circle i {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+/* الهوفر على الأيقونة لجعلها صفراء صارخة */
+.amenity-card:hover .icon-circle {
+    background-color: var(--bg-card) !important;
+    border: 2px solid var(--primary) !important;
+    transform: scale(1.1);
+}
+
+/* --- Room Cards (قسم الغرف) --- */
+.room-card {
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--bg-body);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+
+/* --- Buttons (الأزرار) --- */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    padding: 12px 30px;
+    border-radius: 50px;
+    /* تصميم دائري أكثر حداثة */
+    font-weight: 600;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--gold) !important;
+    /* يقلب أصفر عند الوقوف عليه */
+    border-color: var(--gold) !important;
+    color: var(--primary) !important;
+    transform: scale(1.05);
+}
+
+/* --- Footer Enhanced Design --- */
+footer {
+    position: relative;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.02));
+    overflow: hidden;
+}
+
+/* إضافة خط علوي ملون ونحيف */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--bs-primary), transparent);
+}
+
+/* --- Quick Links Style (Static Text) --- */
+footer ul li span {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: default;
+    /* لجعل الماوس لا يظهر كيد ضاغطة */
+}
+
+/* إضافة الخط السفلي الذي يظهر عند التمرير */
+footer ul li span::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--bs-primary);
+    transition: width 0.3s ease;
+}
+
+/* التأثير عند التمرير على الليست بالكامل أو النص */
+footer ul li:hover span {
+    color: var(--bs-primary) !important;
+    padding-left: 10px;
+    /* إزاحة خفيفة لليمين لإعطاء طابع حركي */
+}
+
+footer ul li:hover span::after {
+    width: 100%;
+    /* تمدد الخط السفلي */
+}
+
+footer ul li:hover span::before {
+    opacity: 1;
+    left: -2px;
+}
+
+/* أيقونات التواصل الاجتماعي الدائرية والمتحركة */
+.social-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--bs-primary) !important;
+}
+
+.social-icon:hover {
+    background-color: var(--bs-primary);
+    color: var(--bg-body) !important;
+    transform: translateY(-8px) rotate(360deg);
+    /* حركة دوران وقفز */
+}
+
+/* تحسين أيقونات معلومات الاتصال */
+.contact-info-list li i {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background: rgba(var(--bs-primary-rgb), 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-info-list li:hover i {
+    background: var(--bs-primary);
+    color: var(--bg-body) !important;
+    transform: scale(1.1);
+}
+
+
+footer .navbar-brand {
+    letter-spacing: 1px;
+    /* إضافة لمسة جمالية للوجو في الفوتر */
+}
+
+footer .text-white {
+    opacity: 1 !important;
+    /* التأكد من أن اللون الأبيض لا يتأثر بالشفافية */
+}
+
+/* أضف هذا في ملف الـ CSS لتجربة الظهور */
+footer .fa-hotel {
+    color: var(--primary) !important;
+    display: inline-block !important;
+    /* لضمان عدم اختفائها */
+    font-size: 24px;
+    /* كبّر حجمها للتأكد من وجودها */
+}

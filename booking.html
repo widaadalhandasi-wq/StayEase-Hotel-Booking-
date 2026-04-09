@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEase | Booking</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="./css/darkmood.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm transition-theme" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-hotel text-primary me-2"></i>
+                <span class="logo-text">Stay</span><span class="text-primary">Ease</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rooms.html">Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Booking</a></li>
+                </ul>
+
+                <button id="themeToggle" class="theme-btn border-0 bg-transparent shadow-none">
+                    <i class="fa-solid fa-sun fs-4 sun-icon"></i>
+                    <i class="fa-solid fa-moon fs-4 moon-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="Booking-section">
+        <div class="container mt-5">
+            <div class="booking-card shadow p-4 mx-auto" style="max-width: 800px;">
+                <h2 class="text-center mb-4 text-primary fw-bold">Hotel Reservation</h2>
+
+                <form id="bookingForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold">Full Name</label>
+                            <input type="text" id="guestName" class="form-control" required>
+                            <div class="invalid-feedback">Please enter your full name.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="invalid-feedback">Please enter a valid email.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Phone Number</label>
+                            <input type="text" id="phone" class="form-control" required pattern="^[0-9]{8,}$">
+                            <div class="invalid-feedback">Enter a valid phone number (digits only).</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Check-in Date</label>
+                            <input type="date" id="checkIn" class="form-control" required>
+                            <div class="invalid-feedback">Required.</div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Check-out Date</label>
+                            <input type="date" id="checkOut" class="form-control" required>
+                            <div class="invalid-feedback">Must be after check-in date.</div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold">Number of Guests</label>
+                            <select id="guests" class="form-select" required>
+                                <option value="" disabled selected>Choose number of guests...</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                            </select>
+                            <div class="invalid-feedback">Please select number of guests.</div>
+                        </div>
+
+                        <div class="col-md-12 mb-4">
+                            <label class="form-label fw-bold">Special Requests (Optional)</label>
+                            <textarea id="requests" class="form-control" rows="3"
+                                placeholder="Any special needs?"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <button type="submit" class="btn btn-primary px-5 rounded-pill">Confirm Booking</button>
+                        <button type="button" id="resetBtn"
+                            class="btn btn-outline-secondary px-5 rounded-pill">Reset</button>
+                    </div>
+                </form>
+
+                <div id="summaryBox"
+                    class="summary-box mt-5 p-4 bg-light border-start border-success border-5 rounded shadow-sm d-none">
+                    <h4 class="text-success mb-3"><i class="fa-solid fa-circle-check"></i> Booking Confirmed!</h4>
+                    <hr>
+                    <div class="row" id="summaryContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+
+</html>

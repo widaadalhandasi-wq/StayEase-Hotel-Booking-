@@ -1,0 +1,135 @@
+/* --- إعدادات الدارك مود المعتمدة --- */
+[data-bs-theme="dark"] {
+    /* الألوان الأساسية */
+    --bg-body: #050a1f; 
+    --bg-card: #0b1437;
+    --bg-section-alt: #030712; 
+    
+    --primary: #deb331e2;  /* الأصفر الملكي */
+    --text-main: #f8fafc;  /* الأبيض الناصع */
+    --text-muted: #94a3b8; /* الرمادي المريح */
+}
+
+/* --- إجبار العناصر على التحول في الدارك مود --- */
+
+[data-bs-theme="dark"] body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* --- إصلاح أيقونة الشمس الدوارة في الدارك مود --- */
+
+[data-bs-theme="dark"] .sun-icon {
+    display: inline-block !important; 
+    color: var(--primary) !important; 
+    animation: rotateSun 15s linear infinite !important;
+    filter: drop-shadow(0 0 5px rgba(222, 179, 49, 0.5));
+}
+
+[data-bs-theme="dark"] .navbar.scrolled .sun-icon {
+    color: var(--text-main) !important; /* تحويل الشمس للأبيض عند السكرول */
+}
+
+[data-bs-theme="dark"] .moon-icon {
+    display: none !important; 
+}
+
+@keyframes rotateSun {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* حالة الخط السفلي للروابط (after) */
+[data-bs-theme="dark"] .navbar.scrolled .nav-link span::after {
+    background-color: var(--text-main) !important; /* أبيض عند السكرول */
+    transition: background-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] .nav-link span::after {
+    background-color: var(--primary) !important; /* أصفر في الحالة العادية */
+}
+
+/* تحويل النصوص والكلاسات المباشرة */
+[data-bs-theme="dark"] .text-dark {
+    color: var(--text-main) !important;
+}
+
+[data-bs-theme="dark"] .text-primary {
+    color: var(--primary) !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* تحويل العناوين */
+[data-bs-theme="dark"] .section-title,
+[data-bs-theme="dark"] h1 {
+    color: var(--text-main) !important;
+}
+
+[data-bs-theme="dark"] .section-title span,
+[data-bs-theme="dark"] h1 span {
+    color: var(--primary) !important;
+}
+
+[data-bs-theme="dark"] .navbar.scrolled span {
+    color: var(--text-main) !important;
+    transition: color 0.3s ease;
+}
+
+/* تحويل الكروت */
+[data-bs-theme="dark"] .amenity-card, 
+[data-bs-theme="dark"] .room-card {
+    background-color: var(--bg-card) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* تفاعل الأزرار */
+[data-bs-theme="dark"] .btn:hover, 
+[data-bs-theme="dark"] .btn:focus, 
+[data-bs-theme="dark"] .btn:active {
+    color: var(--text-main) !important; 
+    transition: all 0.3s ease;
+}
+
+[data-bs-theme="dark"] .btn-primary:hover {
+    color: var(--text-main) !important;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+[data-bs-theme="dark"] .btn-outline-light:hover {
+    color: #000000 !important; /* أسود للتباين مع خلفية الزر الفاتحة عند التحديد */
+}
+
+/* --- إعدادات الفوتر الموحدة --- */
+
+[data-bs-theme="dark"] footer {
+    background-color: var(--bg-section-alt) !important;
+}
+
+[data-bs-theme="dark"] .social-icon {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+[data-bs-theme="dark"] footer .list-unstyled li span::after {
+    background-color: var(--primary) !important;
+}
+
+[data-bs-theme="dark"] .contact-info-list li i {
+    border: 1px solid var(--text-main) !important; /* حدود بيضاء */
+    color: var(--text-main) !important;
+    background-color: transparent !important;
+}
+
+[data-bs-theme="dark"] .contact-info-list span {
+    color: var(--text-main) !important;
+}
+
+[data-bs-theme="dark"] .contact-info-list li:hover i {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    transform: translateY(-3px);
+}

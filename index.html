@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayEase Hotel Booking</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/darkmood.css">
+</head>
+
+<body>
+    <main>
+        <!-- navbar -->
+        <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-top transition-theme">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" routerLink="/">
+                    <i class="fa-solid fa-hotel me-2"></i> Stay<span class="text-primary">Ease</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#home"><span>Home</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="rooms.html" "><span>Rooms</span></a>
+                </li>
+                <li class=" nav-item">
+                                <a class="nav-link px-3" href="/about"><span>About</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="/contact"><span>Contact</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="booking.html"><span>Booking</span></a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <button onclick="toggleTheme()"
+                                class="theme-btn border-0 bg-transparent d-flex align-items-center justify-content-center shadow-none">
+                                <i class="fa-solid fa-sun fs-4 sun-icon"></i>
+                                <i class="fa-solid fa-moon fs-4 moon-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Home page -->
+        <div class="Home-page" id="home">
+            <header class="hero-section position-relative vh-100 overflow-hidden d-flex align-items-center">
+
+                <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
+                    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=2070"
+                        alt="Hotel" class="w-100 h-100 object-fit-cover">
+                </div>
+
+                <div class="container text-center text-white position-relative hero-content">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h1 class="hero-title mb-4">
+                                Your Escape <span>Redefined</span>
+                            </h1>
+                            <p class="hero-subtitle mb-5">
+                                Experience world-class hospitality and breathtaking views in the heart of the coast.
+                            </p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a href="#rooms" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">Explore
+                                    Rooms</a>
+                                <a href="#booking" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section id="amenities" class="py-5 transition-theme amenities-section">
+                <div class="container py-5">
+
+                    <div class="row mb-5">
+                        <div class="heading col-12 text-center">
+                            <h6 class="text-brand fw-bold text-uppercase tracking-wider mb-3">Our Services</h6>
+                            <h2 class="fw-bold display-5 section-title">Hotel <span>Facilities</span></h2>
+                            <div class="title-line mx-auto mb-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 justify-content-center">
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="card h-100 border-0 shadow-sm text-center p-3 amenity-card">
+                                <div class="icon-circle mb-3 mx-auto">
+                                    <i class="fa-solid fa-person-swimming"></i>
+                                </div>
+                                <h6 class="fw-bold mb-0">Swimming Pool</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="card h-100 border-0 shadow-sm text-center p-3 amenity-card">
+                                <div class="icon-circle mb-3 mx-auto">
+                                    <i class="fa-solid fa-wifi"></i>
+                                </div>
+                                <h6 class="fw-bold mb-0">Free Wi-Fi</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="card h-100 border-0 shadow-sm text-center p-3 amenity-card">
+                                <div class="icon-circle mb-3 mx-auto">
+                                    <i class="fa-solid fa-dumbbell"></i>
+                                </div>
+                                <h6 class="fw-bold mb-0">Fitness Gym</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="card h-100 border-0 shadow-sm text-center p-3 amenity-card">
+                                <div class="icon-circle mb-3 mx-auto">
+                                    <i class="fa-solid fa-car"></i>
+                                </div>
+                                <h6 class="fw-bold mb-0">Free Parking</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <div class="card h-100 border-0 shadow-sm text-center p-3 amenity-card">
+                                <div class="icon-circle mb-3 mx-auto">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </div>
+                                <h6 class="fw-bold mb-0">Restaurant</h6>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section id="featured-rooms" class="py-5">
+                <div class="container pt-5 mt-5">
+                    <div class="text-center mb-5">
+                        <h2 class="hero-title fw-bold display-5 section-title">Featured <span>Rooms</span></h2>
+                        <p class="text-muted">Choose from our wide range of luxury rooms tailored for your comfort.</p>
+                    </div>
+                    <div id="rooms-grid" class="row row-cols-1 row-cols-md-3 g-4"></div>
+                </div>
+            </section>
+        </div>
+        <footer class="py-5 border-top transition-theme">
+            <div class="container">
+                <div class="row gy-5">
+                    <div class="col-lg-4 text-center text-lg-start">
+                        <a class="navbar-brand fw-bold fs-3 mb-3 d-block text-decoration-none">
+                          <i class="fa-solid fa-hotel text-primary me-2"></i>
+                            <span class="text-dark">Stay</span><span class="text-primary">Ease</span>
+                        </a>
+                        <p class="text-muted pe-lg-5">
+                            Your luxury getaway in the heart of the coast. Experience world-class hospitality and
+                            comfort like never before.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center justify-content-lg-start mt-4">
+                            <span class="social-icon"><i class="fa-brands fa-facebook-f"></i></span>
+                            <span class="social-icon"><i class="fa-brands fa-instagram"></i></span>
+                            <span class="social-icon"><i class="fa-brands fa-x-twitter"></i></span>
+                            <span class="social-icon"><i class="fa-brands fa-linkedin-in"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-2 ms-lg-auto">
+                        <h6 class="fw-bold mb-4 text-uppercase tracking-wider">Quick Links</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <span class="text-muted small">Home</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="text-muted small">Our Rooms</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="text-muted small">About Us</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="text-muted small">Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <h6 class="fw-bold mb-4 text-uppercase tracking-wider">Contact Info</h6>
+                        <ul class="list-unstyled text-muted small contact-info-list">
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fa-solid fa-location-dot me-3 text-primary"></i>
+                                <span>123 Luxury Ave, Coast City</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fa-solid fa-phone me-3 text-primary"></i>
+                                <span>+1 234 567 890</span>
+                            </li>
+                            <li class="mb-3 d-flex align-items-center">
+                                <i class="fa-solid fa-envelope me-3 text-primary"></i>
+                                <span>contact@stayease.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-4 border-top">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <p class="mb-0 text-muted small">
+                                &copy; 2026 <span class="fw-bold">StayEase Hotel</span>. All Rights Reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/main.js"></script>
+  
+</body>
+
+</html>

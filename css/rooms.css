@@ -1,0 +1,161 @@
+/* --- 1. تعريف المتغيرات (Root Variables) --- */
+:root {
+    /* ألوان الوضع الفاتح */
+    --primary-color: #0d6efd;
+    --nav-bg-scrolled: #2c3157;
+    --body-bg: #f8f9fa;
+    --text-main: #1a1d35;
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --sun-color: #ffc107;
+    --moon-color: #f1c40f;
+}
+
+/* --- 2. متغيرات الوضع المظلم (Dark Mode Variables) --- */
+[data-bs-theme="dark"] {
+    --nav-bg-scrolled: #1a1d35;
+    --body-bg: #0f1123;
+    --text-main: #ffffff;
+    --card-bg: #1a1d35;
+    --border-color: #333333;
+}
+
+/* --- 3. تطبيق المتغيرات على التصميم --- */
+
+/* Navbar Fixed */
+.navbar {
+    position: fixed !important;
+    top: 0; width: 100%; z-index: 1050;
+    transition: all 0.4s ease;
+    background-color: transparent;
+}
+
+.navbar.scrolled {
+    background-color: var(--nav-bg-scrolled) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body { 
+    padding-top: 85px; 
+    background-color: var(--body-bg); 
+    color: var(--text-main);
+    transition: background-color 0.3s ease;
+}
+
+/* زر تبديل الثيم */
+#themeToggle {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* أيقونة الشمس (تظهر في الفاتح) */
+[data-bs-theme="light"] .sun-icon {
+    display: none;
+}
+
+[data-bs-theme="light"] .moon-icon {
+    display: block;
+    color: var(--bg-body);
+    
+}
+/* أيقونة القمر (تظهر في الداكن) */
+[data-bs-theme="dark"] .sun-icon {
+    display: none !important;
+}
+[data-bs-theme="dark"] .moon-icon {
+    display: block !important;
+    color: var(--moon-color);
+}
+
+/* العناوين */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-main); 
+    position: relative;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title span {
+    color: var(--primary-color);
+    position: relative;
+}
+
+/* Filter Bar */
+.filter-bar { 
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color); 
+    transition: 0.3s; 
+}
+
+/* Room Cards */
+.room-card { 
+    background: var(--card-bg); 
+    border-radius: 15px; 
+    overflow: hidden; 
+    transition: 0.3s; 
+    border: 1px solid var(--border-color); 
+    color: var(--text-main);
+}
+
+.room-img { 
+    height: 220px; 
+    object-fit: cover; 
+    transition: 0.5s; 
+}
+
+.room-card:hover .room-img { 
+    transform: scale(1.1); 
+}
+/* --- تعديلات شريط الفلترة في الدارك مود (باستخدام المتغيرات) --- */
+
+[data-bs-theme="dark"] .filter-bar {
+    background-color: var(--card-bg) !important; 
+    border-color: var(--border-color) !important;
+}
+
+/* 1. جعل عناوين الحقول (Labels) واضحة */
+[data-bs-theme="dark"] .filter-bar label {
+    color: var(--text-muted) !important; 
+}
+
+/* 2. جعل النصوص داخل المدخلات والـ Select بيضاء */
+[data-bs-theme="dark"] .filter-bar .form-control,
+[data-bs-theme="dark"] .filter-bar .form-select {
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* 3. تعديل نص الـ Placeholder */
+[data-bs-theme="dark"] .filter-bar .form-control::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.6;
+}
+
+/* 4. جعل قيمة السعر المتغيرة واضحة */
+[data-bs-theme="dark"] .filter-bar #priceValue {
+    color: var(--moon-color) !important; 
+}
+
+/* 5. جعل نص الـ Toggle واضحاً */
+[data-bs-theme="dark"] .form-check-label {
+    color: var(--text-main) !important;
+}
+/* --- إصلاح قائمة الخيارات (Dropdown Options) في الدارك مود --- */
+
+[data-bs-theme="dark"] .filter-bar .form-select option {
+    background-color: var( --card-bg) !important; /* نفس لون خلفية شريط الفلترة */
+    color:var( --text-main) !important; /* نص أبيض واضح */
+}
+

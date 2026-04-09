@@ -1,0 +1,119 @@
+/* --- 1. تعريف المتغيرات الشاملة (Root) --- */
+:root {
+    /* الوضع الفاتح */
+    --primary-color: #0d6efd;
+    --nav-bg-scrolled: #2c3157;
+    --body-bg: #f8f9fa;
+    --text-main: #1a1d35;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --sun-color: #ffc107;
+    --moon-color: #f1c40f;
+    --summary-bg: #f8f9fa;
+    --success-border: #198754;
+}
+
+/* --- 2. متغيرات الوضع المظلم --- */
+[data-bs-theme="dark"] {
+    --nav-bg-scrolled: #1a1d35;
+    --body-bg: #0f1123;
+    --text-main: #ffffff;
+    --card-bg: #1e293b;
+    --input-bg: #0f172a;
+    --border-color: #334155;
+    --summary-bg: #1e293b;
+    --success-border: #22c55e;
+}
+
+/* --- 3. تطبيق المتغيرات على التصميم --- */
+
+body { 
+    padding-top: 85px; 
+    background-color: var(--body-bg); 
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+/* النافبار */
+.navbar {
+    position: fixed !important;
+    top: 0; width: 100%; z-index: 1050;
+    transition: all 0.4s ease;
+    background-color: transparent;
+}
+
+.navbar.scrolled {
+    background-color: var(--nav-bg-scrolled) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* زر تبديل الثيم والأيقونات */
+#themeToggle {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50%; width: 40px; height: 40px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease;
+}
+
+[data-bs-theme="light"] .sun-icon { display: block !important; color: var(--sun-color); }
+[data-bs-theme="light"] .moon-icon { display: none !important; }
+
+[data-bs-theme="dark"] .sun-icon { display: none !important; }
+[data-bs-theme="dark"] .moon-icon { display: block !important; color: var(--moon-color); }
+
+/* حقول الإدخال والقائمة المنسدلة (حل مشكلة الصورة) */
+.form-control, .form-select {
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* حل مشكلة اختفاء النصوص داخل الـ Select Options */
+.form-select option {
+    background-color: var(--input-bg);
+    color: var(--text-main);
+}
+
+/* صندوق الملخص (Summary Box) */
+.summary-box {
+    background-color: var(--summary-bg) !important;
+    color: var(--text-main) !important;
+    border-left: 5px solid var(--success-border) !important;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.summary-box i {
+    color: var(--primary-color) !important;
+}
+
+[data-bs-theme="dark"] .summary-box p, 
+[data-bs-theme="dark"] .summary-box strong {
+    color: var(--text-main) !important;
+}
+
+/* قسم الحجز (Booking Section) */
+.Booking-section {
+    min-height: 100vh;
+    padding: 80px 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(200, 225, 255, 0.7)), 
+                url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
+}
+
+[data-bs-theme="dark"] .Booking-section {
+    background: linear-gradient(135deg, rgba(7, 13, 31, 0.9), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
+}
+
+.booking-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    border: none;
+    color: var(--text-main);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
