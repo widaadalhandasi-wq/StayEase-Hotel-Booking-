@@ -14,17 +14,6 @@
     --success-border: #198754;
 }
 
-/* --- 2. متغيرات الوضع المظلم --- */
-[data-bs-theme="dark"] {
-    --nav-bg-scrolled: #1a1d35;
-    --body-bg: #0f1123;
-    --text-main: #ffffff;
-    --card-bg: #1e293b;
-    --input-bg: #0f172a;
-    --border-color: #334155;
-    --summary-bg: #1e293b;
-    --success-border: #22c55e;
-}
 
 /* --- 3. تطبيق المتغيرات على التصميم --- */
 
@@ -57,11 +46,18 @@ body {
     transition: all 0.3s ease;
 }
 
-[data-bs-theme="light"] .sun-icon { display: block !important; color: var(--sun-color); }
-[data-bs-theme="light"] .moon-icon { display: none !important; }
+/* أيقونة الشمس (تظهر في الفاتح) */
+[data-bs-theme="light"] .sun-icon {
+    display: none;
+}
 
-[data-bs-theme="dark"] .sun-icon { display: none !important; }
-[data-bs-theme="dark"] .moon-icon { display: block !important; color: var(--moon-color); }
+[data-bs-theme="light"] .moon-icon {
+    display: block;
+    color: var(--bg-body);
+    
+}
+
+
 
 /* حقول الإدخال والقائمة المنسدلة (حل مشكلة الصورة) */
 .form-control, .form-select {
@@ -88,10 +84,6 @@ body {
     color: var(--primary-color) !important;
 }
 
-[data-bs-theme="dark"] .summary-box p, 
-[data-bs-theme="dark"] .summary-box strong {
-    color: var(--text-main) !important;
-}
 
 /* قسم الحجز (Booking Section) */
 .Booking-section {
@@ -101,10 +93,7 @@ body {
                 url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
 }
 
-[data-bs-theme="dark"] .Booking-section {
-    background: linear-gradient(135deg, rgba(7, 13, 31, 0.9), rgba(15, 23, 42, 0.8)), 
-                url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
-}
+
 
 .booking-card {
     background: var(--card-bg);
@@ -116,4 +105,90 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Unified Mobile Menu Style (Rooms & Booking) --- */
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        /* 1. Background and Box Styling */
+        background-color: rgb(81, 81, 111); 
+        border-radius: 20px;
+        margin-top: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        
+        /* 2. Flexbox for perfect centering */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        margin-bottom: 20px; /* Space before the theme icon */
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .nav-link {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--bs-emphasis-color) !important;
+    }
+
+    /* 3. Theme Toggle Centering */
+    #themeToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        margin: 0 auto; /* Center the circle itself */
+    }
+}
+/* --- Enhanced Mobile Toggler Visibility --- */
+
+/* 1. Style for Light Mode (Default) */
+.navbar-toggler {
+    /* Making the border darker and thicker for clarity */
+    border: 2px solid rgba(0, 0, 0, 0.5) !important;
+    padding: 0.4rem;
+}
+
+.navbar-toggler-icon {
+    /* Using a high-contrast dark SVG for the hamburger lines */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Force hide on initial component load for mobile */
+@media (max-width: 991.98px) {
+    #navbarNav.show {
+        display: none; /* This prevents it from appearing open on load */
+    }
+    
+    /* Bootstrap will add the class and handle display when clicked */
+    #navbarNav.collapsing, #navbarNav.show {
+        display: flex !important;
+    }
+}/* --- Fix Mobile Menu Persistence (Pure CSS) --- */
+
+@media (max-width: 991.98px) {
+    /* Ensure the collapse is strictly hidden when not 'show' */
+    .navbar-collapse:not(.show) {
+        display: none !important;
+    }
+
+    /* Force the menu to close if it tries to 'leak' during page load */
+    .collapsing {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.35s ease;
+    }
 }

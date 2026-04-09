@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StayEase Hotel Booking</title>
+    <!-- bootstrap css link -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- fontawesome css link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- main home  css main style -->
     <link rel="stylesheet" href="./css/main.css">
+    <!-- darkmode style -->
     <link rel="stylesheet" href="./css/darkmood.css">
 </head>
 
@@ -16,27 +19,30 @@
         <!-- navbar -->
         <nav id="mainNavbar" class="navbar navbar-expand-lg sticky-top transition-theme">
             <div class="container">
-                <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" routerLink="/">
+                <a class="navbar-brand fw-bold fs-3 d-flex align-items-center" routerlink="/">
                     <i class="fa-solid fa-hotel me-2"></i> Stay<span class="text-primary">Ease</span>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-collapse collapse" id="navbarNav" style="">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
                             <a class="nav-link px-3" href="#home"><span>Home</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="rooms.html" "><span>Rooms</span></a>
+                            <a class="nav-link px-3" href="rooms.html" "=""><span>Rooms</span></a>
                 </li>
-                <li class=" nav-item">
-                                <a class="nav-link px-3" href="/about"><span>About</span></a>
+                        <li class=" nav-item">
+                                <a class="nav-link px-3" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#aboutModal"><span>About</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="/contact"><span>Contact</span></a>
+                            <a class="nav-link px-3" href="#" data-bs-toggle="modal"
+                                data-bs-target="#contactModal"><span>Contact</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link px-3" href="booking.html"><span>Booking</span></a>
@@ -53,13 +59,14 @@
             </div>
         </nav>
         <!-- Home page -->
+        <!--header -- hero-section-->
         <div class="Home-page" id="home">
             <header class="hero-section position-relative vh-100 overflow-hidden d-flex align-items-center">
 
                 <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                     <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100"></div>
 
-                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=2070"
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&amp;fit=crop&amp;q=80&amp;w=2070"
                         alt="Hotel" class="w-100 h-100 object-fit-cover">
                 </div>
 
@@ -73,14 +80,19 @@
                                 Experience world-class hospitality and breathtaking views in the heart of the coast.
                             </p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a href="#rooms" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">Explore
-                                    Rooms</a>
-                                <a href="#booking" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">Book Now</a>
+                                <a href="rooms.html" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">
+                                    Explore Rooms
+                                </a>
+
+                                <a href="booking.html" class="btn btn-primary btn-lg px-5 py-3 fw-semibold">
+                                    Book Now
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+            <!-- amenities section  -->
             <section id="amenities" class="py-5 transition-theme amenities-section">
                 <div class="container py-5">
 
@@ -142,22 +154,127 @@
                     </div>
                 </div>
             </section>
+            <!-- featured-rooms -->
             <section id="featured-rooms" class="py-5">
                 <div class="container pt-5 mt-5">
                     <div class="text-center mb-5">
                         <h2 class="hero-title fw-bold display-5 section-title">Featured <span>Rooms</span></h2>
                         <p class="text-muted">Choose from our wide range of luxury rooms tailored for your comfort.</p>
                     </div>
-                    <div id="rooms-grid" class="row row-cols-1 row-cols-md-3 g-4"></div>
+                    <div id="rooms-grid" class="row row-cols-1 row-cols-md-3 g-4">
+                        <article class="col">
+                            <div class="card h-100 shadow-sm border-0 room-card transition-theme">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500"
+                                        class="card-img-top room-img" alt="Classic Single"
+                                        style="height: 250px; object-fit: cover;"
+                                        onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500'">
+
+                                    <span
+                                        class="badge position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill bg-success">
+                                        Available
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h3 class="h5 card-title fw-bold mb-0">Classic Single</h3>
+                                        <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.1</span>
+                                    </div>
+                                    <p class="card-text text-muted small flex-grow-1">A cozy room with a queen bed, work
+                                        desk, and city view.</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-3 border-top pt-3">
+                                        <div>
+                                            <span class="fs-5 fw-bold text-primary">$55</span>
+                                            <small class="text-muted">/night</small>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm rounded-pill px-4"
+                                            onclick="handleBooking(1)">
+                                            Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="col">
+                            <div class="card h-100 shadow-sm border-0 room-card transition-theme">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=500"
+                                        class="card-img-top room-img" alt="Deluxe Double"
+                                        style="height: 250px; object-fit: cover;"
+                                        onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500'">
+
+                                    <span
+                                        class="badge position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill bg-success">
+                                        Available
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h3 class="h5 card-title fw-bold mb-0">Deluxe Double</h3>
+                                        <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.5</span>
+                                    </div>
+                                    <p class="card-text text-muted small flex-grow-1">Spacious double room with two
+                                        queen beds and garden view.</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-3 border-top pt-3">
+                                        <div>
+                                            <span class="fs-5 fw-bold text-primary">$90</span>
+                                            <small class="text-muted">/night</small>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm rounded-pill px-4"
+                                            onclick="handleBooking(2)">
+                                            Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="col">
+                            <div class="card h-100 shadow-sm border-0 room-card transition-theme">
+                                <div class="position-relative overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500"
+                                        class="card-img-top room-img" alt="Premium Suite"
+                                        style="height: 250px; object-fit: cover;"
+                                        onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?w=500'">
+
+                                    <span
+                                        class="badge position-absolute top-0 end-0 m-3 px-3 py-2 rounded-pill bg-success">
+                                        Available
+                                    </span>
+                                </div>
+                                <div class="card-body d-flex flex-column p-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h3 class="h5 card-title fw-bold mb-0">Premium Suite</h3>
+                                        <span class="text-warning small"><i class="bi bi-star-fill"></i> 4.8</span>
+                                    </div>
+                                    <p class="card-text text-muted small flex-grow-1">Luxurious suite with a king bed,
+                                        lounge area, and sea view.</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-3 border-top pt-3">
+                                        <div>
+                                            <span class="fs-5 fw-bold text-primary">$180</span>
+                                            <small class="text-muted">/night</small>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm rounded-pill px-4"
+                                            onclick="handleBooking(3)">
+                                            Book Now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </section>
         </div>
+        <!--footer   -->
         <footer class="py-5 border-top transition-theme">
             <div class="container">
                 <div class="row gy-5">
                     <div class="col-lg-4 text-center text-lg-start">
                         <a class="navbar-brand fw-bold fs-3 mb-3 d-block text-decoration-none">
-                          <i class="fa-solid fa-hotel text-primary me-2"></i>
+                            <i class="fa-solid fa-hotel text-primary me-2"></i>
                             <span class="text-dark">Stay</span><span class="text-primary">Ease</span>
                         </a>
                         <p class="text-muted pe-lg-5">
@@ -176,16 +293,16 @@
                         <h6 class="fw-bold mb-4 text-uppercase tracking-wider">Quick Links</h6>
                         <ul class="list-unstyled">
                             <li class="mb-3">
-                                <span class="text-muted small">Home</span>
+                                <a href="index.html" class="text-decoration-none text-muted small">Home</a>
                             </li>
                             <li class="mb-3">
-                                <span class="text-muted small">Our Rooms</span>
+                                <a href="rooms.html" class="text-decoration-none text-muted small">Our Rooms</a>
                             </li>
                             <li class="mb-3">
-                                <span class="text-muted small">About Us</span>
+                                <a href="#about" class="text-decoration-none text-muted small">About Us</a>
                             </li>
                             <li class="mb-3">
-                                <span class="text-muted small">Support</span>
+                                <a href="#contact" class="text-decoration-none text-muted small">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -213,35 +330,79 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8 text-center">
                             <p class="mb-0 text-muted small">
-                                &copy; 2026 <span class="fw-bold">StayEase Hotel</span>. All Rights Reserved.
+                                © 2026 <span class="fw-bold">StayEase Hotel</span>. All Rights Reserved.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
+
+        <!-- about page -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 shadow border-0">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold modal-title-main">About <span
+                                class="text-primary">StayEase</span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center p-4">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400"
+                            class="img-fluid rounded-4 mb-3" alt="Hotel">
+                        <p class="text-muted">
+                            StayEase is your premier destination for finding luxury stays. We focus on providing a
+                            seamless experience and redefined comfort for all our guests.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contact page -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content rounded-4 shadow border-0">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold modal-title-main">Contact <span
+                                class="text-primary">Support</span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control rounded-pill" placeholder="Your Name">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control rounded-pill" placeholder="Email Address">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control rounded-4" rows="3"
+                                    placeholder="How can we help?"></textarea>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100 rounded-pill"
+                                onclick="showSuccessMessage()">
+                                Send Message
+                            </button>
+                        </form>
+                        <div class="alert alert-success alert-dismissible fade show d-none" id="successAlert"
+                            role="alert">
+                            <i class="bi bi-check-circle-fill me-2"></i>
+                            Your message has been sent <strong>successfully!</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- bootstrap js link -->
     <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- fontawesome js link -->
     <script src="./js/all.min.js"></script>
+    <!-- home js main style -->
     <script src="./js/main.js"></script>
-  
+
 </body>
 
 </html>

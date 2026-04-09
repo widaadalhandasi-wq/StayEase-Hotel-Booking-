@@ -11,14 +11,6 @@
     --moon-color: #f1c40f;
 }
 
-/* --- 2. متغيرات الوضع المظلم (Dark Mode Variables) --- */
-[data-bs-theme="dark"] {
-    --nav-bg-scrolled: #1a1d35;
-    --body-bg: #0f1123;
-    --text-main: #ffffff;
-    --card-bg: #1a1d35;
-    --border-color: #333333;
-}
 
 /* --- 3. تطبيق المتغيرات على التصميم --- */
 
@@ -66,15 +58,6 @@ body {
     color: var(--bg-body);
     
 }
-/* أيقونة القمر (تظهر في الداكن) */
-[data-bs-theme="dark"] .sun-icon {
-    display: none !important;
-}
-[data-bs-theme="dark"] .moon-icon {
-    display: block !important;
-    color: var(--moon-color);
-}
-
 /* العناوين */
 .section-title {
     font-size: 2.5rem;
@@ -84,6 +67,8 @@ body {
     margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+
 }
 
 .section-title span {
@@ -117,45 +102,68 @@ body {
 .room-card:hover .room-img { 
     transform: scale(1.1); 
 }
-/* --- تعديلات شريط الفلترة في الدارك مود (باستخدام المتغيرات) --- */
-
-[data-bs-theme="dark"] .filter-bar {
-    background-color: var(--card-bg) !important; 
-    border-color: var(--border-color) !important;
+/* --- Centering Theme Toggle in Mobile Menu --- */
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1) !important; /* Subtle dark border */
 }
 
-/* 1. جعل عناوين الحقول (Labels) واضحة */
-[data-bs-theme="dark"] .filter-bar label {
-    color: var(--text-muted) !important; 
+.navbar-toggler-icon {
+    /* Uses a dark grey/black SVG for visibility on white backgrounds */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
+/* --- Mobile Menu Centering & Background --- */
 
-/* 2. جعل النصوص داخل المدخلات والـ Select بيضاء */
-[data-bs-theme="dark"] .filter-bar .form-control,
-[data-bs-theme="dark"] .filter-bar .form-select {
-    background-color: var(--input-bg) !important;
-    color: var(--text-main) !important;
-    border-color: var(--border-color) !important;
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        /* Background behind the links */
+        background-color: rgb(86, 86, 116); 
+        border-radius: 15px;
+        margin-top: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        
+        /* Centering the items */
+        text-align: center;
+    }
+
+    .navbar-nav {
+        /* Ensuring the list takes full width for centering */
+        width: 100%;
+        align-items: center;
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* Styling the links to look like buttons in mobile */
+    .nav-link {
+        color: var(--bs-emphasis-color) !important;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
 }
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        display: flex;
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;    /* Center everything horizontally */
+        justify-content: center;
+        text-align: center;
+    }
 
-/* 3. تعديل نص الـ Placeholder */
-[data-bs-theme="dark"] .filter-bar .form-control::placeholder {
-    color: var(--text-muted) !important;
-    opacity: 0.6;
+    .navbar-nav {
+        margin-bottom: 20px; /* Space between links and the moon icon */
+    }
+
+    /* Style for the theme toggle button/container */
+    #themeToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto; /* Ensures it stays centered */
+        padding: 10px;
+        cursor: pointer;
+    }
 }
-
-/* 4. جعل قيمة السعر المتغيرة واضحة */
-[data-bs-theme="dark"] .filter-bar #priceValue {
-    color: var(--moon-color) !important; 
-}
-
-/* 5. جعل نص الـ Toggle واضحاً */
-[data-bs-theme="dark"] .form-check-label {
-    color: var(--text-main) !important;
-}
-/* --- إصلاح قائمة الخيارات (Dropdown Options) في الدارك مود --- */
-
-[data-bs-theme="dark"] .filter-bar .form-select option {
-    background-color: var( --card-bg) !important; /* نفس لون خلفية شريط الفلترة */
-    color:var( --text-main) !important; /* نص أبيض واضح */
-}
-

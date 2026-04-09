@@ -114,3 +114,35 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.setAttribute('data-bs-theme', 'dark');
     }
 });
+
+// إغلاق قائمة الموبايل تلقائياً عند الضغط على أي رابط
+const navLinks = document.querySelectorAll('.nav-link');
+const menuToggle = document.getElementById('navbarNav'); // تأكدي أن هذا هو ID القائمة عندك
+const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+
+navLinks.forEach((l) => {
+    l.addEventListener('click', () => { 
+        if (window.innerWidth < 992) { // فقط في وضع الموبايل
+            bsCollapse.hide(); 
+        }
+    });
+});
+
+// contact page
+/* --- Function to show success alert --- */
+function showSuccessMessage() {
+    // 1. Find the form and the alert using their tags/IDs
+    const form = document.querySelector('#contactModal form');
+    const alert = document.getElementById('successAlert');
+
+    // 2. Hide the form
+    if (form) {
+        form.classList.add('d-none');
+    }
+
+    // 3. Show the success message by removing 'd-none'
+    if (alert) {
+        alert.classList.remove('d-none');
+    }
+}
+

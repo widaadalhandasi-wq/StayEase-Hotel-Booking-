@@ -308,7 +308,7 @@ footer::before {
 }
 
 /* --- Quick Links Style (Static Text) --- */
-footer ul li span {
+footer ul li span , footer ul li a{
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
@@ -317,7 +317,7 @@ footer ul li span {
 }
 
 /* إضافة الخط السفلي الذي يظهر عند التمرير */
-footer ul li span::after {
+footer ul li span::after ,footer ul li:hover a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -329,13 +329,14 @@ footer ul li span::after {
 }
 
 /* التأثير عند التمرير على الليست بالكامل أو النص */
-footer ul li:hover span {
+footer ul li:hover span ,footer ul li:hover a::after {
     color: var(--bs-primary) !important;
     padding-left: 10px;
     /* إزاحة خفيفة لليمين لإعطاء طابع حركي */
 }
 
-footer ul li:hover span::after {
+footer ul li:hover span::after ,footer ul li:hover a::after
+{
     width: 100%;
     /* تمدد الخط السفلي */
 }
@@ -401,4 +402,45 @@ footer .fa-hotel {
     /* لضمان عدم اختفائها */
     font-size: 24px;
     /* كبّر حجمها للتأكد من وجودها */
+}
+
+/* تحسين أيقونة الـ Toggler */
+.navbar-toggler {
+    border: 2px solid var(--text-navbar) !important;
+    padding: 4px 8px;
+}
+
+
+/* في وضع الظلام: أيقونة بيضاء */
+[data-bs-theme="dark"] .navbar-toggler-icon {
+    filter: invert(1) brightness(2);
+}
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(2, 8, 98, 0.95); /* لون أزرق داكن StayEase مع شفافية */
+        backdrop-filter: blur(10px);      /* تأثير زجاجي */
+        border-radius: 15px;
+        margin-top: 15px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+.nav-link {
+        color: #ffffff !important; /* لون أبيض صريح */
+        font-weight: 700 !important; /* خط سميك جداً للوضوح */
+        font-size: 1.2rem !important;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* ظل أسود خلف النص لزيادة التباين */
+        letter-spacing: 0.5px;
+        padding: 15px 0 !important;
+        text-transform: uppercase; /* جعل الحروف كبيرة يزيد من الوضوح في التصاميم الفندقية */
+    }
+}
+/* جعل أيقونة المنيو بيضاء وواضحة */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    outline: none !important;
 }

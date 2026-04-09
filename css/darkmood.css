@@ -1,3 +1,5 @@
+/* ================================================= */
+/* home page */
 /* --- إعدادات الدارك مود المعتمدة --- */
 [data-bs-theme="dark"] {
     /* الألوان الأساسية */
@@ -114,7 +116,7 @@
     border-color: var(--primary) !important;
 }
 
-[data-bs-theme="dark"] footer .list-unstyled li span::after {
+[data-bs-theme="dark"] footer .list-unstyled li span::after ,footer .list-unstyled li a::after {
     background-color: var(--primary) !important;
 }
 
@@ -132,4 +134,116 @@
     border-color: var(--primary) !important;
     color: var(--primary) !important;
     transform: translateY(-3px);
+}
+/* في وضع الإضاءة: أيقونة غامقة */
+[data-bs-theme="light"] .navbar-toggler-icon {
+    filter: invert(0); 
+}
+/* ================================================================ */
+/* room page */
+
+/* --- 2. متغيرات الوضع المظلم (Dark Mode Variables) --- */
+[data-bs-theme="dark"] {
+    --nav-bg-scrolled: #1a1d35;
+    --body-bg: #0f1123;
+    --text-main: #ffffff;
+    --card-bg: #1a1d35;
+    --border-color: #333333;
+}
+
+/* --- تعديلات شريط الفلترة في الدارك مود (باستخدام المتغيرات) --- */
+
+[data-bs-theme="dark"] .filter-bar {
+    background-color: var(--card-bg) !important; 
+    border-color: var(--border-color) !important;
+}
+
+/* 1. جعل عناوين الحقول (Labels) واضحة */
+[data-bs-theme="dark"] .filter-bar label {
+    color: var(--text-muted) !important; 
+}
+
+/* 2. جعل النصوص داخل المدخلات والـ Select بيضاء */
+[data-bs-theme="dark"] .filter-bar .form-control,
+[data-bs-theme="dark"] .filter-bar .form-select {
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* 3. تعديل نص الـ Placeholder */
+[data-bs-theme="dark"] .filter-bar .form-control::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.6;
+}
+
+/* 4. جعل قيمة السعر المتغيرة واضحة */
+[data-bs-theme="dark"] .filter-bar #priceValue {
+    color: var(--moon-color) !important; 
+}
+
+/* 5. جعل نص الـ Toggle واضحاً */
+[data-bs-theme="dark"] .form-check-label {
+    color: var(--text-main) !important;
+}
+/* --- إصلاح قائمة الخيارات (Dropdown Options) في الدارك مود --- */
+
+[data-bs-theme="dark"] .filter-bar .form-select option {
+    background-color: var( --card-bg) !important; /* نفس لون خلفية شريط الفلترة */
+    color:var( --text-main) !important; /* نص أبيض واضح */
+}
+
+/* * Switch back to white icon when Dark Mode is active */ 
+[data-bs-theme="dark"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+[data-bs-theme="dark"] .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ================================================================ */
+/* booking page */
+
+/* --- 2. متغيرات الوضع المظلم --- */
+[data-bs-theme="dark"] {
+    --nav-bg-scrolled: #1a1d35;
+    --body-bg: #0f1123;
+    --text-main: #ffffff;
+    --card-bg: #1e293b;
+    --input-bg: #0f172a;
+    --border-color: #334155;
+    --summary-bg: #1e293b;
+    --success-border: #22c55e;
+}
+[data-bs-theme="dark"] .summary-box p, 
+[data-bs-theme="dark"] .summary-box strong {
+    color: var(--text-main) !important;
+}
+[data-bs-theme="dark"] .Booking-section {
+    background: linear-gradient(135deg, rgba(7, 13, 31, 0.9), rgba(15, 23, 42, 0.8)), 
+                url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
+}
+
+
+/* 2. Style for Dark Mode (Auto-switch) */
+[data-bs-theme="dark"] .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-bs-theme="dark"] .navbar-toggler-icon {
+    /* Switching to white lines in dark mode */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ============================================================================== */
+/* about and contact */
+/* إجبار عناوين النوافذ على اللون الأسود في وضع الظلام */
+[data-bs-theme="dark"] .modal-title-main {
+    color: #000000 !important;
+}
+
+/* تحسين إضافي: جعل اللون الذهبي أو الأزرق (text-primary) يظهر بوضوح */
+.text-primary {
+    color: var(--gold) !important; /* أو اتركيها زرقاء حسب تصميمك */
 }
