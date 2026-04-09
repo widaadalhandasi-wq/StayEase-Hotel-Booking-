@@ -1,16 +1,17 @@
-// navbar
-// ننتظر تحميل الصفحة أولاً
+// --- Navbar ---
+// Listen for scroll events to update navbar styling
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('mainNavbar');
     
-    // إذا كان السكرول أكبر من 50 بكسل، أضف الكلاس
+    // Add 'scrolled' class if vertical scroll is greater than 20 pixels
     if (window.scrollY > 20) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
 });
-// home page 
+
+// --- Home Page ---
 async function renderFeaturedRooms() {
     const grid = document.getElementById('rooms-grid');
     if(!grid) return;
@@ -19,8 +20,8 @@ async function renderFeaturedRooms() {
         const response = await fetch('./data.json');
         const data = await response.json();
         
-        // جلب أول 6 غرف لعرضها كاملة
-        const featured = data.rooms.slice(0, 6);
+        // Fetch the first 3 rooms to display as featured items
+        const featured = data.rooms.slice(0, 3);
         let htmlContent = '';
 
         featured.forEach(room => {
@@ -64,49 +65,49 @@ async function renderFeaturedRooms() {
         grid.innerHTML = htmlContent;
 
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error fetching rooms:", error);
     }
 }
 
-// 2. دالة التعامل مع الحجز
+// 2. Booking handler function
 function handleBooking(roomId) {
-    // نستخدم نفس المسار المباشر هنا أيضاً
+    // Fetch data to find the specific room details
     fetch('./data.json')
         .then(response => response.json())
         .then(data => {
             const selectedRoom = data.rooms.find(r => r.id === roomId);
             if (selectedRoom) {
+                // Save selected room details to localStorage
                 localStorage.setItem('selectedRoom', JSON.stringify(selectedRoom));
-                // التوجيه لصفحة الحجز (تأكد أن اسمها مطابق تماماً)
+                // Redirect to the booking page
                 window.location.href = 'booking.html';
             }
         })
         .catch(err => console.error("Error in booking:", err));
 }
 
-// تشغيل الدالة
+// Initialize featured rooms rendering on page load
 document.addEventListener('DOMContentLoaded', renderFeaturedRooms);
 
 
-
-// dark mood
+// --- Dark Mode ---
 function toggleTheme() {
     const body = document.body;
     
-    // 1. تبديل الكلاس على الـ body
+    // 1. Toggle 'dark' class on the body
     body.classList.toggle('dark');
     
-    // 2. تحديث سمة Bootstrap 5 (اختياري لكنه احترافي)
+    // 2. Update Bootstrap 5 color theme attribute (professional approach)
     if (body.classList.contains('dark')) {
         document.documentElement.setAttribute('data-bs-theme', 'dark');
-        localStorage.setItem('theme', 'dark'); // حفظ الخيار
+        localStorage.setItem('theme', 'dark'); // Save preference
     } else {
         document.documentElement.setAttribute('data-bs-theme', 'light');
-        localStorage.setItem('theme', 'light'); // حفظ الخيار
+        localStorage.setItem('theme', 'light'); // Save preference
     }
 }
 
-// 3. كود "الذاكرة": عند فتح الصفحة، تأكد من الثيم المحفوظ
+// 3. Persistent Theme: Check for saved preference on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -115,34 +116,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// إغلاق قائمة الموبايل تلقائياً عند الضغط على أي رابط
+// Automatically close mobile menu when a link is clicked
 const navLinks = document.querySelectorAll('.nav-link');
-const menuToggle = document.getElementById('navbarNav'); // تأكدي أن هذا هو ID القائمة عندك
+const menuToggle = document.getElementById('navbarNav'); // Ensure this matches your menu ID
 const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
 
 navLinks.forEach((l) => {
     l.addEventListener('click', () => { 
-        if (window.innerWidth < 992) { // فقط في وضع الموبايل
+        if (window.innerWidth < 992) { // Only trigger on mobile view
             bsCollapse.hide(); 
         }
     });
 });
 
-// contact page
-/* --- Function to show success alert --- */
+// --- Contact Page ---
+/* Function to show success alert */
 function showSuccessMessage() {
-    // 1. Find the form and the alert using their tags/IDs
+    // 1. Find the form and the alert using their IDs
     const form = document.querySelector('#contactModal form');
     const alert = document.getElementById('successAlert');
 
-    // 2. Hide the form
+    // 2. Hide the input form
     if (form) {
         form.classList.add('d-none');
     }
 
-    // 3. Show the success message by removing 'd-none'
+    // 3. Display the success message by removing 'd-none'
     if (alert) {
         alert.classList.remove('d-none');
     }
 }
-

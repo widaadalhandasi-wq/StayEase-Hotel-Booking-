@@ -1,30 +1,26 @@
-/* --- وضع الإضاءة (Light Mode) هو الافتراضي --- */
+/* --- Light Mode is Default --- */
 :root {
-    /* ألوان الخلفيات */
+    /* Background Colors */
     --bg-body: #ffffff;
     --bg-section-alt: rgba(167, 161, 161, 0.1);
     --bg-card: #ffffff;
     --bg-nav-scrolled: rgba(2, 8, 98, 0.95);
 
-
-    /* ألوان النصوص */
+    /* Text Colors */
     --text-main: #2b3035;
     --text-muted: #6c757d;
     --text-navbar: #ffffff;
 
-    /* ألوان الهوية والتفاعل */
-    --primary: #020862;
-    /* أزرق StayEase الداكن */
-    --accent: #38bdf8;
-    /* أزرق سماوي للتأثيرات */
-    --gold: #ffc107;
-    /* أصفر للتفاعل */
+    /* Identity and Interaction Colors */
+    --primary: #020862; /* StayEase Dark Blue */
+    --accent: #38bdf8;  /* Sky Blue for effects */
+    --gold: #ffc107;    /* Yellow for interaction */
     --nav-shadow: rgba(0, 0, 0, 0.1);
     --bs-primary: #01074a !important;
     --bs-primary-rgb: 1, 7, 74 !important;
 }
 
-/* التنسيق الأساسي للنافبار */
+/* Basic Navbar Styling */
 .navbar {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--nav-bg) !important;
@@ -36,7 +32,7 @@
     z-index: 1000;
 }
 
-/* الحالة عند السكرول (تُفعل بواسطة JS) */
+/* Scrolled State (Activated via JS) */
 .navbar.scrolled {
     background-color: var(--primary) !important;
     backdrop-filter: blur(10px);
@@ -44,7 +40,7 @@
     padding: 10px 0;
 }
 
-/* ألوان النصوص واللوجو ثابتة باللون الأبيض للوضوح */
+/* Text and Logo colors set to White for clarity */
 .nav-link,
 .navbar-brand,
 .navbar-brand i {
@@ -54,11 +50,10 @@
     cursor: pointer !important;
 }
 
-/* تأثير الخط تحت الكلمات فقط */
+/* Underline effect on text only */
 .nav-link span {
     position: relative;
     display: inline-block;
-
 }
 
 .nav-link span::after {
@@ -72,23 +67,21 @@
     transition: width 0.3s ease;
 }
 
-/* تمدد الخط عند التمرير أو الحالة النشطة */
+/* Expand underline on hover or active state */
 .nav-link:hover span::after,
 .nav-link.active span::after {
-    width: 100%;
-    /* يتمدد على قدر الكلمة بالضبط */
+    width: 100%; /* Expands to match text width exactly */
 }
 
-/* أيقونة اللوجو */
+/* Logo Icon */
 .navbar-brand i {
     font-family: "Font Awesome 6 Free" !important;
     font-weight: 900;
 }
 
-/* --- 3. زر الثيم المطور (أيقونات الشمس والقمر) --- */
+/* --- 3. Enhanced Theme Button (Sun/Moon Icons) --- */
 .theme-btn {
-    background: rgba(255, 255, 255, 0.1) !important;
-    /* خلفية خفيفة جداً للزر */
+    background: rgba(255, 255, 255, 0.1) !important; /* Very light background for button */
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 50%;
     width: 40px;
@@ -100,7 +93,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* التحكم في الأيقونات بناءً على سمة Bootstrap */
+/* Icon control based on Bootstrap theme */
 [data-bs-theme="light"] .sun-icon {
     display: none;
 }
@@ -108,10 +101,9 @@
 [data-bs-theme="light"] .moon-icon {
     display: block;
     color: var(--bg-body);
-    
 }
 
-/* تأثير الخط تحت الكلمات فقط */
+/* Underline effect on text only (Duplicate removed in logic, kept for structure) */
 .nav-link span {
     position: relative;
 }
@@ -130,22 +122,22 @@
 .nav-link:hover span::after {
     width: 100%;
 }
-/* --- 4. أيقونة الموبايل (Hamburger Menu) --- */
+
+/* --- 4. Mobile Toggle Icon (Hamburger Menu) --- */
 .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 .navbar-toggler-icon {
-    filter: invert(1) brightness(2);
-    /* تأكد من ظهورها باللون الأبيض */
+    filter: invert(1) brightness(2); /* Ensures white color visibility */
 }
 
-/* تحسين السكرول: تقليل حجم النافبار عند النزول */
+/* Scroll Optimization: Reduce navbar size on scroll */
 .navbar.scrolled {
     padding: 8px 0 !important;
 }
 
-/* --- إعدادات عامة ومنع الزحف الأفقي --- */
+/* --- General Settings and Horizontal Overflow Prevention --- */
 /* home */
 html,
 body {
@@ -161,17 +153,16 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
-/* --- العناوين (Typography) --- */
+/* --- Typography --- */
 h2.section-title {
-    font-size: clamp(32px, 5vw, 45px);
-    /* حجم متجاوب تلقائياً */
+    font-size: clamp(32px, 5vw, 45px); /* Auto-responsive font size */
     font-weight: 700 !important;
     line-height: 1.2;
     margin-bottom: 20px;
     color: var(--text-main);
 }
 
-/* --- الـ Hero Section --- */
+/* --- Hero Section --- */
 .hero-section {
     position: relative;
     min-height: 100vh;
@@ -201,13 +192,12 @@ h2.section-title {
     margin-bottom: 20px;
 }
 
-/* --- Amenities Section (قسم الخدمات) --- */
+/* --- Amenities Section --- */
 .amenities-section {
     padding: 80px 0;
     text-align: center;
     background-color: var(--bg-section-alt);
 }
-
 
 .amenity-card {
     background-color: var(--bg-card) !important;
@@ -228,7 +218,7 @@ h2.section-title {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* تحسين الأيقونة وتأثير الأصفر النيون */
+/* Icon circle and Neon Yellow effect enhancement */
 .icon-circle {
     width: 80px;
     height: 80px;
@@ -248,14 +238,14 @@ h2.section-title {
     transition: all 0.3s ease;
 }
 
-/* الهوفر على الأيقونة لجعلها صفراء صارخة */
+/* Hover on icon to make it bold primary color/border */
 .amenity-card:hover .icon-circle {
     background-color: var(--bg-card) !important;
     border: 2px solid var(--primary) !important;
     transform: scale(1.1);
 }
 
-/* --- Room Cards (قسم الغرف) --- */
+/* --- Room Cards Section --- */
 .room-card {
     border-radius: 15px;
     overflow: hidden;
@@ -269,21 +259,17 @@ h2.section-title {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
 }
 
-
-
-/* --- Buttons (الأزرار) --- */
+/* --- Buttons --- */
 .btn-primary {
     background-color: var(--primary) !important;
     border-color: var(--primary) !important;
     padding: 12px 30px;
-    border-radius: 50px;
-    /* تصميم دائري أكثر حداثة */
+    border-radius: 50px; /* Modern rounded design */
     font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
-    background-color: var(--gold) !important;
-    /* يقلب أصفر عند الوقوف عليه */
+    background-color: var(--gold) !important; /* Switch to gold on hover */
     border-color: var(--gold) !important;
     color: var(--primary) !important;
     transform: scale(1.05);
@@ -296,7 +282,7 @@ footer {
     overflow: hidden;
 }
 
-/* إضافة خط علوي ملون ونحيف */
+/* Top thin gradient line */
 footer::before {
     content: '';
     position: absolute;
@@ -312,11 +298,10 @@ footer ul li span , footer ul li a{
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
-    cursor: default;
-    /* لجعل الماوس لا يظهر كيد ضاغطة */
+    cursor: default; /* Mouse cursor doesn't show pointer for static spans */
 }
 
-/* إضافة الخط السفلي الذي يظهر عند التمرير */
+/* Bottom line appearing on hover */
 footer ul li span::after ,footer ul li:hover a::after {
     content: '';
     position: absolute;
@@ -328,17 +313,15 @@ footer ul li span::after ,footer ul li:hover a::after {
     transition: width 0.3s ease;
 }
 
-/* التأثير عند التمرير على الليست بالكامل أو النص */
+/* Hover effect for the entire list item or text */
 footer ul li:hover span ,footer ul li:hover a::after {
     color: var(--bs-primary) !important;
-    padding-left: 10px;
-    /* إزاحة خفيفة لليمين لإعطاء طابع حركي */
+    padding-left: 10px; /* Slight right shift for motion feel */
 }
 
 footer ul li:hover span::after ,footer ul li:hover a::after
 {
-    width: 100%;
-    /* تمدد الخط السفلي */
+    width: 100%; /* Underline expansion */
 }
 
 footer ul li:hover span::before {
@@ -346,7 +329,7 @@ footer ul li:hover span::before {
     left: -2px;
 }
 
-/* أيقونات التواصل الاجتماعي الدائرية والمتحركة */
+/* Circular and animated social media icons */
 .social-icon {
     width: 45px;
     height: 45px;
@@ -363,11 +346,10 @@ footer ul li:hover span::before {
 .social-icon:hover {
     background-color: var(--bs-primary);
     color: var(--bg-body) !important;
-    transform: translateY(-8px) rotate(360deg);
-    /* حركة دوران وقفز */
+    transform: translateY(-8px) rotate(360deg); /* Jump and rotate animation */
 }
 
-/* تحسين أيقونات معلومات الاتصال */
+/* Contact information icons enhancement */
 .contact-info-list li i {
     width: 32px;
     height: 32px;
@@ -384,58 +366,54 @@ footer ul li:hover span::before {
     transform: scale(1.1);
 }
 
-
 footer .navbar-brand {
-    letter-spacing: 1px;
-    /* إضافة لمسة جمالية للوجو في الفوتر */
+    letter-spacing: 1px; /* Aesthetic touch for footer logo */
 }
 
 footer .text-white {
-    opacity: 1 !important;
-    /* التأكد من أن اللون الأبيض لا يتأثر بالشفافية */
+    opacity: 1 !important; /* Ensure white color is not affected by transparency */
 }
 
-/* أضف هذا في ملف الـ CSS لتجربة الظهور */
+/* Hotel icon visibility in footer */
 footer .fa-hotel {
     color: var(--primary) !important;
     display: inline-block !important;
-    /* لضمان عدم اختفائها */
     font-size: 24px;
-    /* كبّر حجمها للتأكد من وجودها */
 }
 
-/* تحسين أيقونة الـ Toggler */
+/* Toggler icon improvement */
 .navbar-toggler {
     border: 2px solid var(--text-navbar) !important;
     padding: 4px 8px;
 }
 
-
-/* في وضع الظلام: أيقونة بيضاء */
+/* White icon in Dark Mode */
 [data-bs-theme="dark"] .navbar-toggler-icon {
     filter: invert(1) brightness(2);
 }
+
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        background: rgba(2, 8, 98, 0.95); /* لون أزرق داكن StayEase مع شفافية */
-        backdrop-filter: blur(10px);      /* تأثير زجاجي */
+        background: rgba(2, 8, 98, 0.95); /* StayEase Dark Blue with transparency */
+        backdrop-filter: blur(10px);      /* Glassmorphism effect */
         border-radius: 15px;
         margin-top: 15px;
         padding: 20px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-.nav-link {
-        color: #ffffff !important; /* لون أبيض صريح */
-        font-weight: 700 !important; /* خط سميك جداً للوضوح */
+    .nav-link {
+        color: #ffffff !important; /* Pure white */
+        font-weight: 700 !important; /* Extra bold for readability */
         font-size: 1.2rem !important;
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* ظل أسود خلف النص لزيادة التباين */
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Text shadow for contrast */
         letter-spacing: 0.5px;
         padding: 15px 0 !important;
-        text-transform: uppercase; /* جعل الحروف كبيرة يزيد من الوضوح في التصاميم الفندقية */
+        text-transform: uppercase; /* Uppercase adds clarity in hospitality designs */
     }
 }
-/* جعل أيقونة المنيو بيضاء وواضحة */
+
+/* Ensure menu icon is white and clear */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }

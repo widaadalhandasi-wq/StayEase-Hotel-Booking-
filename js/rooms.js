@@ -1,13 +1,13 @@
 let allRooms = [];
 const roomsGrid = document.getElementById('roomsGrid');
 
-// 1. جلب البيانات من ملف data.json
+// 1. Fetch data from data.json file
 async function loadRooms() {
     try {
         const response = await fetch('data.json');
         const data = await response.json();
 
-        // جلب المصفوفة من داخل data.rooms بناءً على هيكل ملف الـ JSON الخاص بك
+        // Get the array from data.rooms based on your JSON file structure
         allRooms = data.rooms;
 
         renderRooms(allRooms);
@@ -19,7 +19,7 @@ async function loadRooms() {
     }
 }
 
-// 2. عرض الغرف في الصفحة
+// 2. Display rooms on the page
 function renderRooms(rooms) {
     if (!roomsGrid) return;
     roomsGrid.innerHTML = '';
@@ -63,7 +63,7 @@ function renderRooms(rooms) {
     });
 }
 
-// 3. منطق الفلترة
+// 3. Filtering logic
 function applyFilter() {
     const searchInput = document.getElementById('searchInput');
     const typeSelect = document.getElementById('typeSelect');
@@ -90,7 +90,7 @@ function applyFilter() {
     renderRooms(filtered);
 }
 
-// 4. دالة الحجز
+// 4. Booking function
 window.bookRoom = function (id) {
     const room = allRooms.find(r => r.id === id);
     if (room && room.available) {
@@ -100,18 +100,18 @@ window.bookRoom = function (id) {
     }
 };
 
-// 5. ربط الأحداث (الأحداث المدمجة)
+// 5. Event Listeners (Combined Events)
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const htmlElement = document.documentElement;
 
-    // تطبيق الثيم المحفوظ عند التحميل
+    // Apply saved theme on load
     const savedTheme = localStorage.getItem('theme') || 'light';
     htmlElement.setAttribute('data-bs-theme', savedTheme);
 
-    // منطق زر التبديل
+    // Toggle button logic
     if (themeToggle) {
-        // هذا الجزء من كودك سيعمل مع الـ CSS أعلاه تلقائياً
+        // This part works automatically with the existing CSS
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-bs-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ربط الفلترة
+    // Bind filtering events
     const elements = ['searchInput', 'typeSelect', 'priceRange', 'availCheck'];
     elements.forEach(id => {
         const el = document.getElementById(id);
@@ -131,15 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // جلب البيانات
+    // Fetch data
     loadRooms();
 });
 
 
-// 6. تأثير النافبار عند السكرول
+// 6. Navbar effect on scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
     if (nav) {
-        window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        window.scrollY > 20 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
     }
 });

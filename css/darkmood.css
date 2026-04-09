@@ -1,26 +1,24 @@
 /* ================================================= */
-/* home page */
-/* --- إعدادات الدارك مود المعتمدة --- */
+/* Home Page */
+/* --- Approved Dark Mode Settings --- */
 [data-bs-theme="dark"] {
-    /* الألوان الأساسية */
+    /* Base Colors */
     --bg-body: #050a1f; 
     --bg-card: #0b1437;
     --bg-section-alt: #030712; 
     
-    --primary: #deb331e2;  /* الأصفر الملكي */
-    --text-main: #f8fafc;  /* الأبيض الناصع */
-    --text-muted: #94a3b8; /* الرمادي المريح */
+    --primary: #deb331e2;  /* Royal Gold */
+    --text-main: #f8fafc;  /* Stark White */
+    --text-muted: #94a3b8; /* Comfortable Gray */
 }
 
-/* --- إجبار العناصر على التحول في الدارك مود --- */
-
+/* --- Force element conversion in Dark Mode --- */
 [data-bs-theme="dark"] body {
     background-color: var(--bg-body);
     color: var(--text-main);
 }
 
-/* --- إصلاح أيقونة الشمس الدوارة في الدارك مود --- */
-
+/* --- Fix rotating Sun Icon in Dark Mode --- */
 [data-bs-theme="dark"] .sun-icon {
     display: inline-block !important; 
     color: var(--primary) !important; 
@@ -29,7 +27,7 @@
 }
 
 [data-bs-theme="dark"] .navbar.scrolled .sun-icon {
-    color: var(--text-main) !important; /* تحويل الشمس للأبيض عند السكرول */
+    color: var(--text-main) !important; /* Switch sun to white on scroll */
 }
 
 [data-bs-theme="dark"] .moon-icon {
@@ -41,17 +39,17 @@
     to { transform: rotate(360deg); }
 }
 
-/* حالة الخط السفلي للروابط (after) */
+/* Link underline state (after) */
 [data-bs-theme="dark"] .navbar.scrolled .nav-link span::after {
-    background-color: var(--text-main) !important; /* أبيض عند السكرول */
+    background-color: var(--text-main) !important; /* White on scroll */
     transition: background-color 0.3s ease;
 }
 
 [data-bs-theme="dark"] .nav-link span::after {
-    background-color: var(--primary) !important; /* أصفر في الحالة العادية */
+    background-color: var(--primary) !important; /* Gold in default state */
 }
 
-/* تحويل النصوص والكلاسات المباشرة */
+/* Direct text and class conversion */
 [data-bs-theme="dark"] .text-dark {
     color: var(--text-main) !important;
 }
@@ -64,7 +62,7 @@
     color: var(--text-muted) !important;
 }
 
-/* تحويل العناوين */
+/* Header conversion */
 [data-bs-theme="dark"] .section-title,
 [data-bs-theme="dark"] h1 {
     color: var(--text-main) !important;
@@ -80,14 +78,14 @@
     transition: color 0.3s ease;
 }
 
-/* تحويل الكروت */
+/* Card conversion */
 [data-bs-theme="dark"] .amenity-card, 
 [data-bs-theme="dark"] .room-card {
     background-color: var(--bg-card) !important;
     border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* تفاعل الأزرار */
+/* Button interactions */
 [data-bs-theme="dark"] .btn:hover, 
 [data-bs-theme="dark"] .btn:focus, 
 [data-bs-theme="dark"] .btn:active {
@@ -102,11 +100,10 @@
 }
 
 [data-bs-theme="dark"] .btn-outline-light:hover {
-    color: #000000 !important; /* أسود للتباين مع خلفية الزر الفاتحة عند التحديد */
+    color: #000000 !important; /* Black for contrast against light button background on hover */
 }
 
-/* --- إعدادات الفوتر الموحدة --- */
-
+/* --- Unified Footer Settings --- */
 [data-bs-theme="dark"] footer {
     background-color: var(--bg-section-alt) !important;
 }
@@ -121,7 +118,7 @@
 }
 
 [data-bs-theme="dark"] .contact-info-list li i {
-    border: 1px solid var(--text-main) !important; /* حدود بيضاء */
+    border: 1px solid var(--text-main) !important; /* White border */
     color: var(--text-main) !important;
     background-color: transparent !important;
 }
@@ -135,14 +132,16 @@
     color: var(--primary) !important;
     transform: translateY(-3px);
 }
-/* في وضع الإضاءة: أيقونة غامقة */
+
+/* Light mode: Dark icon */
 [data-bs-theme="light"] .navbar-toggler-icon {
     filter: invert(0); 
 }
-/* ================================================================ */
-/* room page */
 
-/* --- 2. متغيرات الوضع المظلم (Dark Mode Variables) --- */
+/* ================================================================ */
+/* Room Page */
+
+/* --- Dark Mode Variables --- */
 [data-bs-theme="dark"] {
     --nav-bg-scrolled: #1a1d35;
     --body-bg: #0f1123;
@@ -151,19 +150,18 @@
     --border-color: #333333;
 }
 
-/* --- تعديلات شريط الفلترة في الدارك مود (باستخدام المتغيرات) --- */
-
+/* --- Filter Bar adjustments in Dark Mode --- */
 [data-bs-theme="dark"] .filter-bar {
     background-color: var(--card-bg) !important; 
     border-color: var(--border-color) !important;
 }
 
-/* 1. جعل عناوين الحقول (Labels) واضحة */
+/* 1. Make field labels clear */
 [data-bs-theme="dark"] .filter-bar label {
     color: var(--text-muted) !important; 
 }
 
-/* 2. جعل النصوص داخل المدخلات والـ Select بيضاء */
+/* 2. Set input and select text to white */
 [data-bs-theme="dark"] .filter-bar .form-control,
 [data-bs-theme="dark"] .filter-bar .form-select {
     background-color: var(--input-bg) !important;
@@ -171,26 +169,26 @@
     border-color: var(--border-color) !important;
 }
 
-/* 3. تعديل نص الـ Placeholder */
+/* 3. Adjust placeholder text */
 [data-bs-theme="dark"] .filter-bar .form-control::placeholder {
     color: var(--text-muted) !important;
     opacity: 0.6;
 }
 
-/* 4. جعل قيمة السعر المتغيرة واضحة */
+/* 4. Make dynamic price value clear */
 [data-bs-theme="dark"] .filter-bar #priceValue {
     color: var(--moon-color) !important; 
 }
 
-/* 5. جعل نص الـ Toggle واضحاً */
+/* 5. Make toggle text clear */
 [data-bs-theme="dark"] .form-check-label {
     color: var(--text-main) !important;
 }
-/* --- إصلاح قائمة الخيارات (Dropdown Options) في الدارك مود --- */
 
+/* --- Fix Dropdown Options in Dark Mode --- */
 [data-bs-theme="dark"] .filter-bar .form-select option {
-    background-color: var( --card-bg) !important; /* نفس لون خلفية شريط الفلترة */
-    color:var( --text-main) !important; /* نص أبيض واضح */
+    background-color: var( --card-bg) !important; /* Same as filter bar background */
+    color:var( --text-main) !important; /* Clear white text */
 }
 
 /* * Switch back to white icon when Dark Mode is active */ 
@@ -203,9 +201,9 @@
 }
 
 /* ================================================================ */
-/* booking page */
+/* Booking Page */
 
-/* --- 2. متغيرات الوضع المظلم --- */
+/* --- Dark Mode Variables --- */
 [data-bs-theme="dark"] {
     --nav-bg-scrolled: #1a1d35;
     --body-bg: #0f1123;
@@ -225,8 +223,7 @@
                 url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2000') fixed center/cover;
 }
 
-
-/* 2. Style for Dark Mode (Auto-switch) */
+/* Style for Dark Mode (Auto-switch) */
 [data-bs-theme="dark"] .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -237,13 +234,13 @@
 }
 
 /* ============================================================================== */
-/* about and contact */
-/* إجبار عناوين النوافذ على اللون الأسود في وضع الظلام */
+/* About and Contact */
+/* Force modal titles to black in dark mode */
 [data-bs-theme="dark"] .modal-title-main {
     color: #000000 !important;
 }
 
-/* تحسين إضافي: جعل اللون الذهبي أو الأزرق (text-primary) يظهر بوضوح */
+/* Additional optimization: Ensure gold or blue (text-primary) appears clearly */
 .text-primary {
-    color: var(--gold) !important; /* أو اتركيها زرقاء حسب تصميمك */
+    color: var(--gold) !important; /* Adjust according to your specific blue/gold design */
 }

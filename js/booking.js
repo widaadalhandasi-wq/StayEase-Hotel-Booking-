@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. تعريف العناصر الأساسية ---
+    // --- 1. Define Core Elements ---
     const htmlElement = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
     const nav = document.getElementById('mainNav');
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const summaryContent = document.getElementById('summaryContent');
     const resetBtn = document.getElementById('resetBtn');
 
-    // --- 2. منطق الثيم (الدارك مود) ---
-    // تحميل الثيم المحفوظ أو استخدام الفاتح كافتراضي
+    // --- 2. Theme Logic (Dark Mode) ---
+    // Load saved theme from localStorage or use 'light' as default
     const savedTheme = localStorage.getItem('theme') || 'light';
     htmlElement.setAttribute('data-bs-theme', savedTheme);
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. منطق النافبار عند السكرول ---
+    // --- 3. Navbar Scroll Logic ---
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
@@ -35,44 +35,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 4. منطق تواريخ الحجز ---
+    // --- 4. Booking Dates Logic ---
     const today = new Date().toISOString().split('T')[0];
-    checkInInput.min = today;
+    checkInInput.min = today; // Prevent selecting past dates for check-in
 
     checkInInput.addEventListener('change', () => {
-        // تحديث أقل تاريخ مسموح للخروج ليكون نفس تاريخ الدخول
+        // Update minimum check-out date to match check-in date
         checkOutInput.min = checkInInput.value;
 
-        // إذا كان تاريخ الخروج المختار قديماً بالنسبة للدخول الجديد، يتم مسحه
+        // Clear check-out value if it becomes invalid relative to the new check-in date
         if (checkOutInput.value && checkOutInput.value < checkInInput.value) {
             checkOutInput.value = '';
         }
     });
 
-    // --- 5. معالجة إرسال النموذج وحساب السعر ---
+    // --- 5. Form Submission Handling and Price Calculation ---
     if (bookingForm) {
         bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // التحقق من صحة الحقول (Bootstrap Validation)
+            // Form Validation (Bootstrap Validation)
             if (!bookingForm.checkValidity()) {
                 e.stopPropagation();
                 bookingForm.classList.add('was-validated');
                 return;
             }
 
-            // جلب السعر من localStorage (أو 150 كافتراضي)
+            // Retrieve room price from localStorage (Default to 150 if not found)
             const pricePerNight = parseInt(localStorage.getItem('selectedRoomPrice')) || 150;
 
             const start = new Date(checkInInput.value);
             const end = new Date(checkOutInput.value);
 
-            // حساب الفرق بالأيام (الليالي)
+            // Calculate the difference in days (nights)
             const diffTime = end - start;
             const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) || 1;
             const totalPrice = nights * pricePerNight;
 
-            // عرض الملخص وتعبئة البيانات
+            // Display Summary and populate data
             summaryContent.innerHTML = `
                 <div class="col-sm-6 mb-3">
                     <p class="mb-1"><strong><i class="fa-solid fa-user me-2"></i>Guest:</strong> ${document.getElementById('guestName').value}</p>
@@ -95,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 6. زر إعادة التعيين (Reset) ---
+    // --- 6. Reset Button Logic ---
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             bookingForm.reset();
             bookingForm.classList.remove('was-validated');
             summaryBox.classList.add('d-none');
-            checkOutInput.min = ""; // إعادة تصفير قيود التاريخ
+            checkOutInput.min = ""; // Reset date constraints
         });
     }
 });
