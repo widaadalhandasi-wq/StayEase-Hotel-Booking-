@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+  <div class="container">
+    <a class="navbar-bold navbar-brand fs-3" routerLink="/">
+      <i class="fa-solid fa-hotel me-2"></i>StayEase
+    </a>
+
+    <button class="navbar-toggler shadow-none border-0" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [ngClass]="{'show': !isMenuCollapsed}" id="navbarNav">
+      <div class="navbar-nav ms-auto align-items-center">
+        <a class="nav-link px-3" routerLink="/rooms" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Rooms</a>
+        <a class="nav-link px-3" routerLink="/booking" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Booking</a>
+        
+        <button (click)="toggleTheme()" class="theme-toggle-btn border-0 bg-transparent ms-lg-3 mt-3 mt-lg-0">
+          <i class="fa-solid fa-sun sun-icon" *ngIf="isDarkMode" style="color: #ffc107;"></i>
+          <i class="fa-solid fa-moon moon-icon" *ngIf="!isDarkMode" style="color: #f1c40f;"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

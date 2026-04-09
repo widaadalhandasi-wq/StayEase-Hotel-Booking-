@@ -1,0 +1,28 @@
+/* Color headings and labels with blue */
+h2, .label-text {
+    color: #0d6efd !important;
+}
+
+/* Enhanced card styling */
+.custom-booking-card {
+    border-radius: 20px;
+    border: 2px solid #dee2e6;
+    background-color: white; /* Will change automatically in dark mode if using variables */
+}
+
+/* Dark mode specific styling to ensure blue color clarity */
+:host-context([data-bs-theme="dark"]) h2,
+:host-context([data-bs-theme="dark"]) .label-text {
+    color: #3b82f6 !important; /* Slightly lighter blue for dark mode */
+}
+
+:host-context([data-bs-theme="dark"]) .custom-booking-card {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+/* Ensure input text is white in dark mode */
+:host-context([data-bs-theme="dark"]) .custom-input {
+    background-color: #0f172a !important;
+    color: white !important;
+}

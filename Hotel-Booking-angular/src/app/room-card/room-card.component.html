@@ -1,0 +1,28 @@
+<div class="card h-100 shadow-sm custom-card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start">
+      <h5 class="card-title text-primary fw-bold">{{ roomData.name }}</h5>
+      <span class="badge bg-light text-dark border"><i class="fa-solid fa-star text-warning me-1"></i>{{ roomData.rating
+        }}</span>
+    </div>
+
+    <p class="text-muted small mt-2">{{ roomData.description }}</p>
+
+    <div class="mb-3">
+      <span *ngFor="let amenity of roomData.amenities" class="badge rounded-pill bg-light text-secondary me-1 border"
+        style="font-size: 0.7rem;">
+        {{ amenity }}
+      </span>
+    </div>
+
+    <div class="mt-auto">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="h4 mb-0 fw-bold text-primary">${{ roomData.price }}</span>
+        <span *ngIf="!roomData.available" class="badge bg-danger-subtle text-danger">Sold Out</span>
+      </div>
+      <button (click)="onBookNow()" class="btn btn-primary w-100 rounded-pill" [disabled]="!roomData.available">
+        <i class="fa-solid fa-calendar-check me-2"></i>Book Now
+      </button>
+    </div>
+  </div>
+</div>

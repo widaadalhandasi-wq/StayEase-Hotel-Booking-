@@ -1,0 +1,15 @@
+/* تنسيق الكارد المخصص */
+.custom-card {
+    /* زيادة سماكة الحدود ولونها في الوضع الفاتح */
+    border: 2px solid #dee2e6 !important; 
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* تأثير عند تمرير الماوس (Hover) لجعل الحدود تضيء */
+.custom-card:hover {
+    border-color: var(--primary-color, #0d6efd) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}

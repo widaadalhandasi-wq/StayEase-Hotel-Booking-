@@ -1,0 +1,61 @@
+/* Deep Navy Blue Background */
+.custom-navbar {
+  background-color: #0f172a !important; /* Deep Navy Blue */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 0.8rem 0;
+  transition: all 0.4s ease;
+}
+
+/* Navigation Links Styling */
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+/* Active Link Styling */
+.active-link {
+  color: #38bdf8 !important; /* Sky blue for active link */
+  border-bottom: 2px solid #38bdf8;
+}
+
+/* Theme Toggle Button and Icons Styling */
+.theme-toggle-btn {
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-left: 15px;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.2);
+}
+
+.sun-icon {
+  color: #facc15; /* Bright yellow for sun */
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(250, 204, 21, 0.5));
+}
+
+.moon-icon {
+  color: #94a3b8; /* Silver-grey for moon */
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px rgba(148, 163, 184, 0.5));
+}
+
+/* Simple Animation for Icon Appearance */
+.sun-icon, .moon-icon {
+  animation: fadeInRotate 0.4s ease-out;
+}
+
+@keyframes fadeInRotate {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}

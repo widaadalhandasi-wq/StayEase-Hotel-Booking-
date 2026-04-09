@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="card p-5 shadow custom-booking-card">
+    <h2 class="mb-4 fw-bold">Complete Reservation</h2>
+
+    <div class="mb-4 text-start">
+      <label class="form-label fw-bold label-text">Guest Full Name</label>
+      <input type="text" class="form-control form-control-lg custom-input" [(ngModel)]="guestName"
+        placeholder="Type your name...">
+    </div>
+
+    <div class="alert alert-primary border-2 shadow-sm" *ngIf="guestName">
+      <i class="fa-solid fa-circle-info me-2"></i>
+      Booking for: <span class="fw-bold">{{ guestName }}</span>
+    </div>
+    <button class="btn btn-primary btn-lg w-100 mt-3 shadow-sm rounded-pill" [disabled]="!guestName"
+      (click)="confirmBooking()">
+      Confirm Reservation
+    </button>
+  </div>
+</div>
