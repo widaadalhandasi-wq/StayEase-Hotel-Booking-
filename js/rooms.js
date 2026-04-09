@@ -95,8 +95,10 @@ window.bookRoom = function (id) {
     const room = allRooms.find(r => r.id === id);
     if (room && room.available) {
         localStorage.setItem('selectedRoom', JSON.stringify(room));
+        
+       
         alert(`Room "${room.name}" selected! Redirecting to booking...`);
-        // window.location.href = 'booking.html'; 
+        window.location.href = 'booking.html'; 
     }
 };
 
