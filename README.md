@@ -1,29 +1,40 @@
-StayEase - Hotel Booking Application 🏨
-StayEase is a modern, responsive hotel booking web application designed to provide users with a seamless experience to discover, filter, and book luxury rooms. It features a sleek UI with dark mode support and dynamic room management.
+# StayEase - Hotel Booking Application 🏨
 
-✨ Features
-Responsive Design: Optimized for all screen sizes (Desktop, Tablet, Mobile).
+A modern, responsive web application for a seamless luxury room discovery and booking experience. Crafted with a sleek UI, dynamic filtering, and a full-featured booking system.
 
-Dynamic Filtering: Search rooms by name, type (Single/Double/Suite), and price range.
+---
 
-Theme Customization: Seamless toggle between Light and Dark modes.
+## ✨ Features
 
-Booking System: Interactive booking form with date validation and real-time price calculation.
+* **Responsive Design:** Fully optimized for Desktop, Tablet, and Mobile.
+* **Dynamic Filtering:** Search rooms by Name, Type (Single/Double/Suite), and Price.
+* **Theme Customization:** Seamless toggle between Light and Dark modes.
+* **Interactive Booking:** Modern form with date validation and real-time price calculation.
+* **Data-Driven:** Managed room information via a centralized JSON source.
 
-Interactive UI: Smooth animations using CSS variables and modern selectors.
+---
 
-Data-Driven: Room information is managed via a centralized JSON data source.
+## 📸 Live Demo & Preview
 
-🚀 Technologies Used
-Frontend: HTML5, CSS3 (Advanced Flexbox/Grid, CSS Variables).
+<div align="center">
+  <img src="YOUR_GIF_OR_IMAGE_LINK_HERE" alt="StayEase Application Preview" width="100%" style="border-radius: 8px; border: 1px solid #ddd;"/>
+</div>
 
-Styling Framework: Bootstrap 5.
+### 🚀 **Experience it live:**
+> **[👉 View Live Application](https://widaadalhandasi-wq.github.io/StayEase-Hotel-Booking-/)**
 
-Logic: Vanilla JavaScript (ES6+), Local Storage for state persistence.
+---
 
-Icons: Font Awesome 6 & Bootstrap Icons.
+## 💻 Technologies Used
 
-Fonts: Playfair Display (for a luxury feel).
+| Category | Technology |
+| :--- | :--- |
+| **Core** | HTML5, CSS3, Vanilla JavaScript (ES6+) |
+| **Framework** | Bootstrap 5 |
+| **Styling** | Advanced Flexbox/Grid, CSS Variables |
+| **Icons & Fonts** | Font Awesome 6, Bootstrap Icons, Playfair Display |
+| **Persistence** | Local Storage |
 
-Live link for first project using javascript:
-https://widaadalhandasi-wq.github.io/StayEase-Hotel-Booking-/
+---
+
+Developed with ❤️ by Widaad.
