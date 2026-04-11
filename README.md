@@ -14,8 +14,7 @@ A modern, responsive web application for a seamless luxury room discovery and bo
 
 ---
 
-## 📸 Live Demo & Preview
-
+## 📸 Modern Application Mockup
 <div align="center">
 <img width="1024" height="489" alt="image" src="https://github.com/user-attachments/assets/1f4d03ee-86be-4d8d-8502-71d7b5684835" />
 
