@@ -17,7 +17,8 @@ A modern, responsive web application for a seamless luxury room discovery and bo
 ## 📸 Live Demo & Preview
 
 <div align="center">
-  <img src="YOUR_GIF_OR_IMAGE_LINK_HERE" alt="StayEase Application Preview" width="100%" style="border-radius: 8px; border: 1px solid #ddd;"/>
+<img width="1024" height="489" alt="image" src="https://github.com/user-attachments/assets/1f4d03ee-86be-4d8d-8502-71d7b5684835" />
+
 </div>
 
 ### 🚀 **Experience it live:**
