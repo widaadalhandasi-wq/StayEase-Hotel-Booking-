@@ -10,12 +10,21 @@
 
     <div class="collapse navbar-collapse" [ngClass]="{'show': !isMenuCollapsed}" id="navbarNav">
       <div class="navbar-nav ms-auto align-items-center">
+        
+        <a class="nav-link px-3" 
+           routerLink="/" 
+           routerLinkActive="active-link" 
+           [routerLinkActiveOptions]="{exact: true}" 
+           (click)="isMenuCollapsed = true">
+           Home
+        </a>
+
         <a class="nav-link px-3" routerLink="/rooms" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Rooms</a>
         <a class="nav-link px-3" routerLink="/booking" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Booking</a>
         
         <button (click)="toggleTheme()" class="theme-toggle-btn border-0 bg-transparent ms-lg-3 mt-3 mt-lg-0">
-          <i class="fa-solid fa-sun sun-icon" *ngIf="isDarkMode" style="color: #ffc107;"></i>
-          <i class="fa-solid fa-moon moon-icon" *ngIf="!isDarkMode" style="color: #f1c40f;"></i>
+          <i class="fa-solid fa-sun" *ngIf="isDarkMode" style="color: #ffc107;"></i>
+          <i class="fa-solid fa-moon" *ngIf="!isDarkMode" style="color: #f1c40f;"></i>
         </button>
       </div>
     </div>

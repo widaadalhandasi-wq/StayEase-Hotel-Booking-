@@ -1,15 +1,99 @@
-/* تنسيق الكارد المخصص */
-.custom-card {
-    /* زيادة سماكة الحدود ولونها في الوضع الفاتح */
-    border: 2px solid #dee2e6 !important; 
-    transition: all 0.3s ease-in-out;
+/* --- 1. التنسيق العام والوضع الفاتح --- */
+body {
+    background-color: #f4f8fb !important;
+    /* الخلفية الزرقاء الباهتة التي طلبتها */
+    padding-bottom: 80px;
+    transition: background-color 0.3s ease;
 }
 
+/* الكارد المخصص في الوضع الفاتح */
+.custom-card {
+    border: 2px solid #dee2e6 !important;
+    transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
+    height: 480px !important;
+}
 
-
-/* تأثير عند تمرير الماوس (Hover) لجعل الحدود تضيء */
+/* تأثير الماوس في الوضع الفاتح */
 .custom-card:hover {
-    border-color: var(--primary-color, #0d6efd) !important;
+    border-color: #0d6efd !important;
+    /* يضيء بالأزرق */
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+/* يمنع السكرول في صفحة الهوم فقط */
+body:has(app-home) {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+/* *********dark mode ************* */
+/* --- 2. إعدادات الدارك مود (أسود خفيف + أصفر) --- */
+[data-bs-theme="dark"] {
+    /* الخلفية الأسود الخفيف */
+    --bs-body-bg: #1a1d20 !important;
+    --bs-body-color: #e9ecef !important;
+
+    /* تحويل الألوان الأساسية إلى أصفر */
+    --bs-primary: #ffc107 !important;
+    --bs-primary-rgb: 255, 193, 7 !important;
+    --bs-primary-text-emphasis: #ffc107 !important;
+
+    /* لون الكروت في الدارك مود */
+    --bs-tertiary-bg: #212529 !important;
+}
+
+/* تطبيق الخلفية على الـ Body في الدارك مود */
+[data-bs-theme="dark"] body {
+    background-color: #6c7074 !important;
+}
+
+/* الكارد في الدارك مود */
+[data-bs-theme="dark"] .custom-card {
+    background-color: #212529 !important;
+    /* أفتح قليلاً من الخلفية */
+    border-color: #343a40 !important;
+}
+
+/* تأثير الماوس في الدارك مود (يتحول للأصفر) */
+[data-bs-theme="dark"] .custom-card:hover {
+    border-color: #ffc107 !important;
+    box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2) !important;
+}
+
+/* --- 3. تخصيص صفحة الـ Booking والعناصر الأخرى --- */
+
+/* الأزرار في الدارك مود */
+[data-bs-theme="dark"] .btn-primary {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #000 !important;
+    /* نص أسود لتباين أفضل */
+    font-weight: 600;
+}
+
+/* حقول الإدخال عند التركيز */
+[data-bs-theme="dark"] .custom-input:focus {
+    border-color: #ffc107 !important;
+    background-color: #2b3035 !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25) !important;
+}
+
+/* العناوين والكلمات المميزة */
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h5.text-primary,
+[data-bs-theme="dark"] .hero-title span {
+    color: #ffc107 !important;
+}
+
+/* الناف بار في الدارك مود */
+[data-bs-theme="dark"] .custom-navbar {
+    background-color: rgba(26, 29, 32, 0.95) !important;
+    border-bottom: 1px solid #343a40;
+}
+
+[data-bs-theme="dark"] .active-link {
+    color: #ffc107 !important;
+    border-bottom: 2px solid #ffc107;
 }

@@ -1,7 +1,15 @@
 <div class="container mt-4">
   <div class="form-check form-switch mb-4">
-    <input class="form-check-input" type="checkbox" [(ngModel)]="onlyAvailable" (change)="loadRooms()">
-    <label class="form-check-label">Show only available</label>
+    <input 
+      class="form-check-input" 
+      type="checkbox" 
+      id="flexSwitchCheckDefault"
+      [(ngModel)]="onlyAvailable"
+      (change)="loadRooms()">
+    
+    <label class="form-check-label text-dark fw-bold" for="flexSwitchCheckDefault">
+      Show only available
+    </label>
   </div>
 
   <div class="row g-4">

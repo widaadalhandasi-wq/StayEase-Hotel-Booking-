@@ -1,0 +1,51 @@
+.hero-section {
+    background-color: #000; /* لون احتياطي */
+}
+
+.hero-overlay {
+    /* تدرج أسود خفيف لجعل النص الأبيض واضحاً جداً فوق أي صورة */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* تحسين استجابة الجوال */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+.hero-full-screen {
+  /* يجعل الارتفاع هو طول الشاشة مطروحاً منه طول الناف بار (70px تقريباً) */
+  height: calc(100vh - 70px) !important;
+  width: 100%;
+  overflow: hidden; /* يضمن عدم وجود سكرول داخلي */
+  margin: 0;
+  padding: 0;
+}
+
+/* لضمان أن الصورة تملأ المساحة المحددة بالضبط */
+.hero-section img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* لمنع أي تمرير في المكون نفسه */
+:host {
+  display: block;
+  height: calc(100vh - 70px);
+  overflow: hidden;
+}

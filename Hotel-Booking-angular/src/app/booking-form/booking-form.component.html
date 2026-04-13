@@ -1,20 +1,60 @@
-<div class="container mt-5">
-  <div class="card p-5 shadow custom-booking-card">
-    <h2 class="mb-4 fw-bold">Complete Reservation</h2>
+<div class="Booking_form">
+  <div class="container mt-5">
+    <div class="card p-5 shadow-lg custom-booking-card">
+      <h2 class="mb-4 fw-bold text-primary">
+        <i class="fa-solid fa-hotel me-2"></i>Reservation Details
+      </h2>
 
-    <div class="mb-4 text-start">
-      <label class="form-label fw-bold label-text">Guest Full Name</label>
-      <input type="text" class="form-control form-control-lg custom-input" [(ngModel)]="guestName"
-        placeholder="Type your name...">
-    </div>
+      <div class="row">
+        <div class="col-md-12 mb-3 text-start">
+          <label class="form-label fw-bold">Full Name</label>
+          <input type="text" class="form-control custom-input" [(ngModel)]="bookingData.guestName"
+            placeholder="Enter guest name">
+        </div>
 
-    <div class="alert alert-primary border-2 shadow-sm" *ngIf="guestName">
-      <i class="fa-solid fa-circle-info me-2"></i>
-      Booking for: <span class="fw-bold">{{ guestName }}</span>
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Phone Number</label>
+          <input type="tel" class="form-control custom-input" [(ngModel)]="bookingData.phone"
+            placeholder="+1 (555) 000-0000">
+        </div>
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Email Address</label>
+          <input type="email" class="form-control custom-input" [(ngModel)]="bookingData.email"
+            placeholder="email@example.com">
+        </div>
+
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Check-in Date</label>
+          <input type="date" class="form-control custom-input" [(ngModel)]="bookingData.checkIn">
+        </div>
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Check-out Date</label>
+          <input type="date" class="form-control custom-input" [(ngModel)]="bookingData.checkOut">
+        </div>
+
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Room Type</label>
+          <select class="form-select custom-input" [(ngModel)]="bookingData.roomType">
+            <option value="single">Single Room</option>
+            <option value="double">Double Room</option>
+            <option value="suite">Royal Suite</option>
+          </select>
+        </div>
+        <div class="col-md-6 mb-3 text-start">
+          <label class="form-label fw-bold">Number of Guests</label>
+          <input type="number" class="form-control custom-input" [(ngModel)]="bookingData.guestsCount" min="1">
+        </div>
+      </div>
+
+      <div class="alert alert-info mt-3 border-0 shadow-sm" *ngIf="bookingData.guestName">
+        <strong>Quick Summary:</strong> Booking for {{ bookingData.guestName }} with {{ bookingData.guestsCount }}
+        guest(s).
+      </div>
+
+      <button class="btn btn-primary btn-lg w-100 mt-4 shadow-sm rounded-pill"
+        [disabled]="!bookingData.guestName || !bookingData.phone" (click)="confirmBooking()">
+        Confirm Reservation
+      </button>
     </div>
-    <button class="btn btn-primary btn-lg w-100 mt-3 shadow-sm rounded-pill" [disabled]="!guestName"
-      (click)="confirmBooking()">
-      Confirm Reservation
-    </button>
   </div>
 </div>

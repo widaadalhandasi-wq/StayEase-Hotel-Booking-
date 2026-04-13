@@ -15,10 +15,11 @@ export class RoomsListComponent implements OnInit {
 
   ngOnInit(): void { this.loadRooms(); }
 
-  loadRooms() {
-    this.rooms = this.onlyAvailable ? this.roomsService.getAvailableRooms() : this.roomsService.getRooms();
-  }
-
+loadRooms() {
+  this.rooms = this.onlyAvailable 
+    ? this.roomsService.getAvailableRooms() 
+    : this.roomsService.getRooms();
+}
   handleSelection(room: Room) {
     alert(`Room "${room.name}" selected! Redirecting...`);
     this.router.navigate(['/booking'], { queryParams: { roomId: room.id } });

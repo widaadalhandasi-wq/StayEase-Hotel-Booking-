@@ -7,4 +7,5 @@ export interface Room {
   rating: number;
   description: string;   
   amenities: string[]; 
+  image: string; 
 }
